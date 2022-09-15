@@ -1,0 +1,70 @@
+[
+  {
+    "text": "Typing components",
+    "deps": []
+  },
+  {
+    "text": "Typing children",
+    "deps": ["Typing components"]
+  },
+  {
+    "text": "Typing components which inherit from native components",
+    "deps": ["Typing components"]
+  },
+  {
+    "text": "Typing onChange handlers",
+    "deps": []
+  },
+  {
+    "text": "Typing hooks",
+    "deps": []
+  },
+  {
+    "text": "Tuple return types from custom hooks",
+    "deps": []
+  },
+  {
+    "text": "useReducer",
+    "deps": []
+  },
+  {
+    "text": "Typing createContext",
+    "deps": []
+  },
+  {
+    "text": "useState overloads",
+    "deps": []
+  },
+  {
+    "text": "useRef overloads - For HTML elements - For values",
+    "deps": []
+  },
+  {
+    "text": "forwardRef",
+    "deps": []
+  },
+  {
+    "text": "Discriminated union props",
+    "deps": []
+  },
+  {
+    "text": "Generic components",
+    "deps": ["Typing components"]
+  },
+  {
+    "text": "Generic custom hooks",
+    "deps": ["Typing hooks"]
+  },
+  {
+    "text": "useState with a generic",
+    "deps": ["Generic custom hooks"]
+  },
+  {
+    "text": "Function overloads in custom hooks",
+    "deps": ["Generic custom hooks"]
+  },
+  {
+    "text": "Higher-order components",
+    "deps": []
+  }
+]
