@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from "react";
+import React, { ComponentProps } from "react";
 
 export const Button = ({
   onClick,
@@ -8,7 +8,7 @@ export const Button = ({
 }: {
   className: string;
   children: React.ReactNode;
-} & ButtonHTMLAttributes<HTMLButtonElement>) => {
+} & ComponentProps<"button">) => {
   return (
     <button {...rest} onClick={onClick} className={className}>
       {children}
