@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { Equal, Expect } from "./helpers/type-utils";
+import { Equal, Expect } from "../helpers/type-utils";
 
 const reducer = (state: unknown, action: unknown) => {
   switch (action.type) {

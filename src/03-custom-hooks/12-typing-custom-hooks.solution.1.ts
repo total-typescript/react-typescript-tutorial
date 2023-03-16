@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Equal, Expect } from "./helpers/type-utils";
+import { Equal, Expect } from "../helpers/type-utils";
 
 export const useId = (defaultId: string) => {
   const [id] = useState(defaultId);
