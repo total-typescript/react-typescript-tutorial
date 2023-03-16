@@ -17,3 +17,5 @@ export const Button = ({
     </button>
   );
 };
+
+type Props = ComponentProps<typeof Button>;
