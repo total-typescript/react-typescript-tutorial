@@ -1,3 +1,3 @@
 // Explain how React works with TypeScript
-// tsconfig options
+// tsconfig options: jsx: "preserve"
 // @types/react
