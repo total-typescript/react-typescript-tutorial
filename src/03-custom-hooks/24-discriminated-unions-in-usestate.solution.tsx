@@ -1,9 +1,16 @@
 import { useEffect, useState } from "react";
 
-interface State {
-  status: "loading" | "loaded" | "error";
-  error?: Error;
-}
+type State =
+  | {
+      status: "loading";
+    }
+  | {
+      status: "loaded";
+    }
+  | {
+      status: "error";
+      error: Error;
+    };
 
 const fetchVideo = (src: string) => {
   return fetch(src).then((response) => response.blob());

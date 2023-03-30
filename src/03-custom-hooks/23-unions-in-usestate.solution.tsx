@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
+type State = "loading" | "loaded" | "error";
+
 const fetchVideo = (src: string, signal: AbortSignal) => {
   return fetch(src, {
     signal,
@@ -14,7 +16,7 @@ const appendVideoToDomAndPlay = (blob: Blob) => {
 };
 
 export const useLoadAsyncVideo = (src: string) => {
-  const [state, setState] = useState("loading");
+  const [state, setState] = useState<State>("loading");
 
   useEffect(() => {
     setState("loading");
