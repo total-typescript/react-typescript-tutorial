@@ -2,3 +2,5 @@
 
 Function overloads in custom hooks?
 function overloads in components?
+Omit, Pick, inferface extends with props
+Picking props from external libraries
