@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
-export type Result<T> = [
-  "loading" | "success" | "error",
-  T | Error | undefined,
-];
+export type Result<T> =
+  | ["loading", undefined]
+  | ["error", Error]
+  | ["success", T];
 
 export const useData = <T,>(url: string): Result<T> => {
   const [result, setResult] = useState<Result<T>>(["loading", undefined]);

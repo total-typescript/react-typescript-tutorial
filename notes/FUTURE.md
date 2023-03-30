@@ -1,5 +1,4 @@
 ## Things to add
 
-Generic components
-Higher order components
-Typing forwardRef
+Function overloads in custom hooks?
+function overloads in components?
