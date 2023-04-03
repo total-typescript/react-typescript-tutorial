@@ -2,9 +2,27 @@ const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 const chokidar = require("chokidar");
+const fg = require("fast-glob");
+const tsconfig = require("../tsconfig.json");
+
+const compilerOptions = Object.entries(tsconfig.compilerOptions)
+  .map(([key, value]) => {
+    if (typeof value === "boolean") {
+      if (value) {
+        return `--${key}`;
+      }
+      return "";
+    }
+
+    if (Array.isArray(value)) {
+      return `--${key} ${value.join(" ")}`;
+    }
+
+    return `--${key} ${JSON.stringify(value)}`;
+  })
+  .join(" ");
 
 const srcPath = path.resolve(__dirname, "../src");
-const tsconfigPath = path.resolve(__dirname, "../tsconfig.json");
 
 const [, , exercise] = process.argv;
 
@@ -13,7 +31,9 @@ if (!exercise) {
   process.exit(1);
 }
 
-const allExercises = fs.readdirSync(srcPath);
+const allExercises = fg.sync(
+  path.join(srcPath, "**", "**.ts").replace(/\\/g, "/"),
+);
 
 let pathIndicator = ".problem.";
 
@@ -21,23 +41,23 @@ if (process.env.SOLUTION) {
   pathIndicator = ".solution.";
 }
 
-const exercisePath = allExercises.find(
-  (exercisePath) =>
-    exercisePath.startsWith(exercise) && exercisePath.includes(pathIndicator),
-);
+const exerciseFile = allExercises.find((e) => {
+  const base = path.parse(e).base;
+  return base.startsWith(exercise) && base.includes(pathIndicator);
+});
 
-if (!exercisePath) {
+if (!exerciseFile) {
   console.log(`Exercise ${exercise} not found`);
   process.exit(1);
 }
-
-const exerciseFile = path.resolve(srcPath, exercisePath);
 
 // One-liner for current directory
 chokidar.watch(exerciseFile).on("all", (event, path) => {
   const fileContents = fs.readFileSync(exerciseFile, "utf8");
 
-  const containsVitest = fileContents.includes("vitest");
+  const containsVitest =
+    fileContents.includes(`from "vitest"`) ||
+    fileContents.includes(`from 'vitest'`);
   try {
     console.clear();
     if (containsVitest) {
@@ -47,7 +67,9 @@ chokidar.watch(exerciseFile).on("all", (event, path) => {
       });
     }
     console.log("Checking types...");
-    execSync(`tsc "${exerciseFile}" --noEmit --strict`, {
+    const cmd = `tsc "${exerciseFile}" ${compilerOptions}`;
+
+    execSync(cmd, {
       stdio: "inherit",
     });
     console.log("Typecheck complete. You finished the exercise!");
