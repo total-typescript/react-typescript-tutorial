@@ -1,1 +1,1 @@
-// Do a quick walkthrough of Vite, Next.js and
+// Do a quick walkthrough of Vite, Next.js and Remix
