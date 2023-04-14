@@ -4,16 +4,16 @@ interface Props {
   className: string;
 }
 
+/* @ts-expect-error */
 export const Button = (props: Props) => {
-  return <button className={props.className}></button>;
+  return {
+    ohDear: "123",
+  };
 };
 
 const Parent = () => {
   return (
     <>
-      {/* @ts-expect-error */}
-      <Button></Button>
-
       <Button className="my-class"></Button>
     </>
   );
