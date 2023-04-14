@@ -5,3 +5,7 @@ export const Button = ({ className, ...rest }: ComponentProps<"button">) => {
     <button {...rest} className={`default-classname ${className}`}></button>
   );
 };
+
+const Parent = () => {
+  return <Button onClick={() => {}} type="button"></Button>;
+};
