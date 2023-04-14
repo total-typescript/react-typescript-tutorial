@@ -1,21 +1,7 @@
 import React, { ComponentProps } from "react";
 
-interface ButtonProps extends ComponentProps<"button"> {
-  className: string;
-  children: React.ReactNode;
-}
-
-export const Button = ({
-  children,
-  className,
-  onClick,
-  ...rest
-}: ButtonProps) => {
+export const Button = ({ className, ...rest }: ComponentProps<"button">) => {
   return (
-    <button {...rest} onClick={onClick} className={className}>
-      {children}
-    </button>
+    <button {...rest} className={`default-classname ${className}`}></button>
   );
 };
-
-type Props = ComponentProps<typeof Button>;

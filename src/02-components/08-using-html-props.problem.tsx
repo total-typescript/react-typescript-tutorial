@@ -1,17 +1,7 @@
 import React from "react";
 
-export const Button = ({
-  onClick,
-  className,
-  children,
-  ...rest
-}: {
-  className: string;
-  children: React.ReactNode;
-}) => {
+export const Button = ({ className, ...rest }: {}) => {
   return (
-    <button {...rest} onClick={onClick} className={className}>
-      {children}
-    </button>
+    <button {...rest} className={`default-classname ${className}`}></button>
   );
 };

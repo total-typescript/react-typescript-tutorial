@@ -1,17 +1,10 @@
-import React, { ComponentProps } from "react";
+import React, { ButtonHTMLAttributes } from "react";
 
 export const Button = ({
-  onClick,
   className,
-  children,
   ...rest
-}: {
-  className: string;
-  children: React.ReactNode;
-} & ComponentProps<"button">) => {
+}: ButtonHTMLAttributes<HTMLButtonElement>) => {
   return (
-    <button {...rest} onClick={onClick} className={className}>
-      {children}
-    </button>
+    <button {...rest} className={`default-classname ${className}`}></button>
   );
 };
