@@ -11,7 +11,10 @@ const fetchData = () => {
 };
 
 export const Component = () => {
-  const [data, setData] = useState<Data>();
+  const [data, setData] = useState<Data>({
+    id: 1,
+    name: "awdawdawd",
+  });
 
   useEffect(() => {
     fetchData().then((val) => {
