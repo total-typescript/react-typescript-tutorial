@@ -19,7 +19,7 @@ type tests = [Expect<Equal<typeof state.count, number>>];
 dispatch({ type: "add", amount: 1 });
 
 // @ts-expect-error
-dispatch({ type: "subtract" });
+dispatch({ type: "SUBTRACT" });
 
 // @ts-expect-error
 dispatch({ type: "add" });
