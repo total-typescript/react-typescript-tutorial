@@ -5,16 +5,21 @@ const reducer = (
   state: {
     count: number;
   },
-  action: {
-    type: string;
-    amount: number;
-  }
+  action:
+    | {
+        type: "add";
+        add: number;
+      }
+    | {
+        type: "subtract";
+        subtract: number;
+      }
 ) => {
   switch (action.type) {
     case "add":
-      return { count: state.count + action.amount };
+      return { count: state.count + action.add };
     case "subtract":
-      return { count: state.count - action.amount };
+      return { count: state.count - action.subtract };
     default:
       throw new Error();
   }
@@ -24,13 +29,13 @@ const [state, dispatch] = useReducer(reducer, { count: 0 });
 
 type tests = [Expect<Equal<typeof state.count, number>>];
 
-dispatch({ type: "add", amount: 1 });
+dispatch({ type: "add", add: 1 });
 
 // @ts-expect-error
-dispatch({ type: "SUBTRACT" });
+dispatch({ type: "SUBTRACT", subtract: 1 });
 
 // @ts-expect-error
 dispatch({ type: "add" });
 
 // @ts-expect-error
-dispatch({ type: "subtract", amount: "123" });
+dispatch({ type: "subtract", subtract: "123" });
