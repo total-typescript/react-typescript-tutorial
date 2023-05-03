@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "types": ["vitest/importMeta"],
+    "types": [
+      "vitest/importMeta"
+    ],
     "target": "es2020",
     "jsx": "react-jsx",
     "module": "ES2022",
@@ -12,5 +14,7 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }
