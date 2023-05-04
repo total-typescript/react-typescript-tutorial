@@ -32,7 +32,7 @@ if (!exercise) {
 }
 
 const allExercises = fg.sync(
-  path.join(srcPath, "**", "**.tsx").replace(/\\/g, "/"),
+  path.join(srcPath, "**", "**.{ts,tsx}").replace(/\\/g, "/"),
 );
 
 let pathIndicator = ".problem.";
