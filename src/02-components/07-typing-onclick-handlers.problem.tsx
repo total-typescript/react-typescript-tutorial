@@ -5,9 +5,9 @@ interface ButtonProps {
   children: React.ReactNode;
 }
 
-export const Button = ({ children, className, onChange }: ButtonProps) => {
+export const Button = ({ children, className, onClick }: ButtonProps) => {
   return (
-    <button onChange={onChange} className={className}>
+    <button onClick={onClick} className={className}>
       {children}
     </button>
   );
