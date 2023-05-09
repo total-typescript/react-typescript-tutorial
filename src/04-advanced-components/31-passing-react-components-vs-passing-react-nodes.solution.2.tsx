@@ -1,7 +1,7 @@
 import { Equal, Expect } from "../helpers/type-utils";
 
 interface TableProps {
-  renderRow: React.ReactNode;
+  renderRow: (rowIndex: number) => React.ReactNode;
 }
 
 const Table = (props: TableProps) => {
