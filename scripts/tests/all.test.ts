@@ -5,6 +5,12 @@ import { cleanVitestOutput } from "./cleanVitestOutput";
 
 const rootFolder = path.resolve(__dirname, "../..");
 
+console.log(rootFolder);
+
+const sanitizeForRegex = (str: string) => {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // $& means the whole matched string
+};
+
 describe("tsc", async () => {
   it("Should have the correct TypeScript errors", () => {
     let result: string;
@@ -16,6 +22,8 @@ describe("tsc", async () => {
     } catch (error) {
       result = error.output.toString();
     }
+
+    result = result.replace(new RegExp(sanitizeForRegex(rootFolder), "g"), "");
 
     expect(result).toMatchSnapshot();
   });
@@ -33,6 +41,8 @@ describe("vitest", async () => {
     } catch (error) {
       result = error.output.toString();
     }
+
+    result = result.replace(new RegExp(sanitizeForRegex(rootFolder), "g"), "");
 
     expect(
       cleanVitestOutput(result, {

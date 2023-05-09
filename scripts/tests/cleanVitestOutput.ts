@@ -48,7 +48,7 @@ export const cleanVitestOutput = (
     delete testResult.endTime;
     delete testResult.duration;
 
-    testResult.name = path.relative(context.rootFolder, testResult.name);
+    // testResult.name = path.relative(context.rootFolder, testResult.name);
 
     testResult.assertionResults.forEach((assertionResult) => {
       delete assertionResult.duration;
