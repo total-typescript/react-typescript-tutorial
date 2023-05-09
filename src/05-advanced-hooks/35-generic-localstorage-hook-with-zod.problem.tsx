@@ -1,5 +1,3 @@
-// TODO - fix tests
-
 import { it } from "vitest";
 import { Equal, Expect } from "../helpers/type-utils";
 import { z } from "zod";

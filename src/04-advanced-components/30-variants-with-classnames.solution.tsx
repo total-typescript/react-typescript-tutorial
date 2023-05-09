@@ -1,3 +1,5 @@
+// keyof/typeof/as const
+
 const classNamesMap = {
   primary: "bg-blue-500 text-white",
   secondary: "bg-gray-200 text-black",
@@ -5,14 +7,7 @@ const classNamesMap = {
 };
 
 type ButtonProps = {
-  /**
-   * This isn't ideal - we have to manually sync
-   * the type of variant with the object above.
-   *
-   * How do we type this so that there's a single
-   * source of truth for the variant?
-   */
-  variant: "primary" | "secondary" | "success";
+  variant: keyof typeof classNamesMap;
 };
 
 export const Button = (props: ButtonProps) => {
