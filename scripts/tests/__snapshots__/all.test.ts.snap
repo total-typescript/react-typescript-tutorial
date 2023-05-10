@@ -96,8 +96,8 @@ src/05-advanced-hooks/33-generic-hooks.problem.ts(29,10): error TS2344: Type 'fa
 src/05-advanced-hooks/34-generic-localstorage-hook.problem.ts(15,30): error TS2558: Expected 0 type arguments, but got 1.
 src/05-advanced-hooks/34-generic-localstorage-hook.problem.ts(22,24): error TS2344: Type 'false' does not satisfy the constraint 'true'.
 src/05-advanced-hooks/34-generic-localstorage-hook.problem.ts(28,5): error TS2578: Unused '@ts-expect-error' directive.
-src/05-advanced-hooks/35-generic-localstorage-hook-with-zod.problem.tsx(28,24): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/05-advanced-hooks/35-generic-localstorage-hook-with-zod.problem.tsx(34,5): error TS2578: Unused '@ts-expect-error' directive.
+src/05-advanced-hooks/35-generic-localstorage-hook-with-zod.problem.tsx(26,24): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/05-advanced-hooks/35-generic-localstorage-hook-with-zod.problem.tsx(32,5): error TS2578: Unused '@ts-expect-error' directive.
 src/05-advanced-hooks/36-unions-in-usestate.problem.tsx(49,3): error TS2578: Unused '@ts-expect-error' directive.
 src/05-advanced-hooks/36-unions-in-usestate.problem.tsx(66,22): error TS2344: Type 'false' does not satisfy the constraint 'true'.
 src/05-advanced-hooks/37-discriminated-unions-in-usestate.problem.tsx(37,3): error TS2578: Unused '@ts-expect-error' directive.
@@ -548,6 +548,19 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
       "assertionResults": [],
       "message": "No test found in suite src/04-advanced-components/30-variants-with-classnames.problem.tsx",
       "name": "/src/04-advanced-components/30-variants-with-classnames.problem.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "No test found in suite src/04-advanced-components/30-variants-with-classnames.solution.tsx",
+      "name": "/src/04-advanced-components/30-variants-with-classnames.solution.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "Transform failed with 1 error:
+/src/04-advanced-components/30.5-prop-groups-with-variants.problem.tsx:18:2: ERROR: Expected \\";\\" but found \\"satisfies\\"",
+      "name": "/src/04-advanced-components/30.5-prop-groups-with-variants.problem.tsx",
       "status": "passed",
     },
     {
