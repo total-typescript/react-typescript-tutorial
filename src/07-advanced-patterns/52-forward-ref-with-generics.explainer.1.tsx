@@ -1,4 +1,5 @@
 import { ForwardedRef, forwardRef } from "react";
+import { Equal, Expect } from "../helpers/type-utils";
 
 type Props<T> = {
   data: T[];
@@ -11,19 +12,20 @@ type Props<T> = {
 //   ): (props: P & React.RefAttributes<T>) => React.ReactElement | null;
 // }
 
-export const Table = forwardRef(
-  <T,>(props: Props<T>, ref: ForwardedRef<any>) => {
-    return null;
-  },
-);
+export const Table = <T,>(props: Props<T>, ref: ForwardedRef<any>) => {
+  return null;
+};
+
+const ForwardReffedTable = forwardRef(Table);
 
 const Parent = () => {
   return (
-    <Table
+    <ForwardReffedTable
       data={["123"]}
       renderRow={(row) => {
+        type test = Expect<Equal<typeof row, string>>;
         return <div>123</div>;
       }}
-    ></Table>
+    ></ForwardReffedTable>
   );
 };

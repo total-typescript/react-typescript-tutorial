@@ -1,7 +1,7 @@
 import React from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
-const createGenericContext = () => {
+const createRequiredContext = () => {
   const context = React.createContext(null);
 
   const useContext = () => {
@@ -17,11 +17,11 @@ const createGenericContext = () => {
   return [useContext, context.Provider] as const;
 };
 
-const [useUser, UserProvider] = createGenericContext<{
+const [useUser, UserProvider] = createRequiredContext<{
   name: string;
 }>();
 
-const [useTheme, ThemeProvider] = createGenericContext<{
+const [useTheme, ThemeProvider] = createRequiredContext<{
   primaryColor: string;
 }>();
 

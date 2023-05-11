@@ -1,12 +1,12 @@
 import React from "react";
 
-export const Component = (props: { as: any }) => {
+export const Component = (props: { as: unknown }) => {
   const Comp = props.as;
-  return <Comp {...(props as any)}></Comp>;
+  return <Comp {...props}></Comp>;
 };
 
 const Link = (props: { href: string; children?: React.ReactNode }) => {
   return <a href={props.href}>{props.children}</a>;
 };
 
-const yeah = <Component as={Link} href="awdawd"></Component>;
+<Component as={Link} href="awdawd"></Component>;

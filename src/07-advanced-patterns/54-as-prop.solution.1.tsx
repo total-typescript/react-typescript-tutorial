@@ -14,7 +14,7 @@ const example1 = <Component as="a" href="awdawd"></Component>;
 const example2 = (
   <Component
     as="div"
-    // Property 'href' does not exist
+    // @ts-expect-error: Property 'href' does not exist
     href="awdawd"
   ></Component>
 );
