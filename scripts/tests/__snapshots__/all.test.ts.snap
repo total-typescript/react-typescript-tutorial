@@ -85,36 +85,45 @@ src/04-advanced-components/27-passing-react-components-vs-passing-react-nodes.so
   Type 'number' is not assignable to type 'ReactElement<any, any>'.
 src/04-advanced-components/28-generic-props.problem.tsx(38,9): error TS2578: Unused '@ts-expect-error' directive.
 src/04-advanced-components/28-generic-props.problem.tsx(50,17): error TS2578: Unused '@ts-expect-error' directive.
-src/05-advanced-hooks/31-typing-custom-hooks.problem.ts(4,23): error TS7006: Parameter 'defaultId' implicitly has an 'any' type.
-src/05-advanced-hooks/31-typing-custom-hooks.problem.ts(10,22): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/05-advanced-hooks/32-tuple-return-type.problem.ts(13,10): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/05-advanced-hooks/32-tuple-return-type.problem.ts(14,10): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/05-advanced-hooks/33-generic-hooks.problem.ts(16,10): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/05-advanced-hooks/33-generic-hooks.problem.ts(18,5): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/05-advanced-hooks/33-generic-hooks.problem.ts(28,10): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/05-advanced-hooks/33-generic-hooks.problem.ts(29,10): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/05-advanced-hooks/34-generic-localstorage-hook.problem.ts(15,30): error TS2558: Expected 0 type arguments, but got 1.
-src/05-advanced-hooks/34-generic-localstorage-hook.problem.ts(22,24): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/05-advanced-hooks/34-generic-localstorage-hook.problem.ts(28,5): error TS2578: Unused '@ts-expect-error' directive.
-src/05-advanced-hooks/35-generic-localstorage-hook-with-zod.problem.tsx(26,24): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/05-advanced-hooks/35-generic-localstorage-hook-with-zod.problem.tsx(32,5): error TS2578: Unused '@ts-expect-error' directive.
-src/05-advanced-hooks/36-unions-in-usestate.problem.tsx(49,3): error TS2578: Unused '@ts-expect-error' directive.
-src/05-advanced-hooks/36-unions-in-usestate.problem.tsx(66,22): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/05-advanced-hooks/37-discriminated-unions-in-usestate.problem.tsx(37,3): error TS2578: Unused '@ts-expect-error' directive.
-src/05-advanced-hooks/37-discriminated-unions-in-usestate.problem.tsx(40,3): error TS2578: Unused '@ts-expect-error' directive.
-src/05-advanced-hooks/37-discriminated-unions-in-usestate.problem.tsx(43,3): error TS2578: Unused '@ts-expect-error' directive.
-src/05-advanced-hooks/39-discriminated-tuples-from-custom-hooks.problem.tsx(31,25): error TS18048: 'value' is possibly 'undefined'.
-src/05-advanced-hooks/39-discriminated-tuples-from-custom-hooks.problem.tsx(31,31): error TS2339: Property 'message' does not exist on type 'Error | { title: string; }'.
+src/04-advanced-components/31-prop-groups-with-variants.problem.tsx(23,11): error TS2322: Type '{ children: string; className: string; type: string; } | { children: string; className: string; type: string; } | { children: string; className: string; type: string; }' is not assignable to type 'DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>'.
+  Type '{ children: string; className: string; type: string; }' is not assignable to type 'DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>'.
+    Type '{ children: string; className: string; type: string; }' is not assignable to type 'ButtonHTMLAttributes<HTMLButtonElement>'.
+      Types of property 'type' are incompatible.
+        Type 'string' is not assignable to type '\\"button\\" | \\"submit\\" | \\"reset\\" | undefined'.
+src/04-advanced-components/31-prop-groups-with-variants.solution.1.tsx(33,8): error TS2578: Unused '@ts-expect-error' directive.
+src/05-advanced-hooks/32-typing-custom-hooks.problem.ts(4,23): error TS7006: Parameter 'defaultId' implicitly has an 'any' type.
+src/05-advanced-hooks/32-typing-custom-hooks.problem.ts(10,22): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/05-advanced-hooks/33-tuple-return-type.problem.ts(13,10): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/05-advanced-hooks/33-tuple-return-type.problem.ts(14,10): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/05-advanced-hooks/34-generic-hooks.problem.ts(16,10): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/05-advanced-hooks/34-generic-hooks.problem.ts(18,5): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/05-advanced-hooks/34-generic-hooks.problem.ts(28,10): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/05-advanced-hooks/34-generic-hooks.problem.ts(29,10): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/05-advanced-hooks/35-function-overloads-in-hooks.problem.ts(25,13): error TS2554: Expected 1 arguments, but got 0.
+src/05-advanced-hooks/35-function-overloads-in-hooks.problem.ts(28,10): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/05-advanced-hooks/35-function-overloads-in-hooks.problem.ts(30,5): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/05-advanced-hooks/36-generic-localstorage-hook.problem.ts(15,30): error TS2558: Expected 0 type arguments, but got 1.
+src/05-advanced-hooks/36-generic-localstorage-hook.problem.ts(22,24): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/05-advanced-hooks/36-generic-localstorage-hook.problem.ts(28,5): error TS2578: Unused '@ts-expect-error' directive.
+src/05-advanced-hooks/37-generic-localstorage-hook-with-zod.problem.tsx(26,24): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/05-advanced-hooks/37-generic-localstorage-hook-with-zod.problem.tsx(32,5): error TS2578: Unused '@ts-expect-error' directive.
+src/05-advanced-hooks/38-unions-in-usestate.problem.tsx(49,3): error TS2578: Unused '@ts-expect-error' directive.
+src/05-advanced-hooks/38-unions-in-usestate.problem.tsx(66,22): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/05-advanced-hooks/39-discriminated-unions-in-usestate.problem.tsx(37,3): error TS2578: Unused '@ts-expect-error' directive.
+src/05-advanced-hooks/39-discriminated-unions-in-usestate.problem.tsx(40,3): error TS2578: Unused '@ts-expect-error' directive.
+src/05-advanced-hooks/39-discriminated-unions-in-usestate.problem.tsx(43,3): error TS2578: Unused '@ts-expect-error' directive.
+src/05-advanced-hooks/41-discriminated-tuples-from-custom-hooks.problem.tsx(31,25): error TS18048: 'value' is possibly 'undefined'.
+src/05-advanced-hooks/41-discriminated-tuples-from-custom-hooks.problem.tsx(31,31): error TS2339: Property 'message' does not exist on type 'Error | { title: string; }'.
   Property 'message' does not exist on type '{ title: string; }'.
-src/05-advanced-hooks/39-discriminated-tuples-from-custom-hooks.problem.tsx(34,16): error TS18048: 'value' is possibly 'undefined'.
-src/05-advanced-hooks/39-discriminated-tuples-from-custom-hooks.problem.tsx(34,22): error TS2339: Property 'title' does not exist on type 'Error | { title: string; }'.
+src/05-advanced-hooks/41-discriminated-tuples-from-custom-hooks.problem.tsx(34,16): error TS18048: 'value' is possibly 'undefined'.
+src/05-advanced-hooks/41-discriminated-tuples-from-custom-hooks.problem.tsx(34,22): error TS2339: Property 'title' does not exist on type 'Error | { title: string; }'.
   Property 'title' does not exist on type 'Error'.
-src/06-types-deep-dive/47-add-attribute-to-div-elements.problem.tsx(6,7): error TS2717: Subsequent property declarations must have the same type.  Property 'div' must be of type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>', but here has type 'ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement> & { something?: string | undefined; }'.
-src/06-types-deep-dive/47-add-attribute-to-div-elements.problem.tsx(13,30): error TS2322: Type '{ something: string; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
+src/06-types-deep-dive/49-add-attribute-to-div-elements.problem.tsx(6,7): error TS2717: Subsequent property declarations must have the same type.  Property 'div' must be of type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>', but here has type 'ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement> & { something?: string | undefined; }'.
+src/06-types-deep-dive/49-add-attribute-to-div-elements.problem.tsx(13,30): error TS2322: Type '{ something: string; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
   Property 'something' does not exist on type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
-src/07-advanced-patterns/52-as-prop.solution.1.tsx(18,5): error TS2322: Type '{ as: \\"div\\"; href: string; }' is not assignable to type 'IntrinsicAttributes & AsProps'.
+src/07-advanced-patterns/54-as-prop.solution.1.tsx(18,5): error TS2322: Type '{ as: \\"div\\"; href: string; }' is not assignable to type 'IntrinsicAttributes & AsProps'.
   Property 'href' does not exist on type 'IntrinsicAttributes & { as: \\"div\\"; } & ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>'. Did you mean 'ref'?
-src/07-advanced-patterns/53-as-prop-with-custom-components.problem.tsx(12,35): error TS2322: Type '{ as: (props: { href: string; children?: ReactNode; }) => Element; href: string; }' is not assignable to type 'IntrinsicAttributes & { as: any; }'.
+src/07-advanced-patterns/55-as-prop-with-custom-components.problem.tsx(12,35): error TS2322: Type '{ as: (props: { href: string; children?: ReactNode; }) => Element; href: string; }' is not assignable to type 'IntrinsicAttributes & { as: any; }'.
   Property 'href' does not exist on type 'IntrinsicAttributes & { as: any; }'.
 ,"
 `;
@@ -558,87 +567,117 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
     },
     {
       "assertionResults": [],
+      "message": "No test found in suite src/04-advanced-components/31-prop-groups-with-variants.problem.tsx",
+      "name": "/src/04-advanced-components/31-prop-groups-with-variants.problem.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "No test found in suite src/04-advanced-components/31-prop-groups-with-variants.solution.1.tsx",
+      "name": "/src/04-advanced-components/31-prop-groups-with-variants.solution.1.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
       "message": "Transform failed with 1 error:
-/src/04-advanced-components/30.5-prop-groups-with-variants.problem.tsx:18:2: ERROR: Expected \\";\\" but found \\"satisfies\\"",
-      "name": "/src/04-advanced-components/30.5-prop-groups-with-variants.problem.tsx",
+/src/04-advanced-components/31-prop-groups-with-variants.solution.2.tsx:16:2: ERROR: Expected \\";\\" but found \\"satisfies\\"",
+      "name": "/src/04-advanced-components/31-prop-groups-with-variants.solution.2.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/05-advanced-hooks/31-typing-custom-hooks.problem.ts",
-      "name": "/src/05-advanced-hooks/31-typing-custom-hooks.problem.ts",
+      "message": "No test found in suite src/05-advanced-hooks/32-typing-custom-hooks.problem.ts",
+      "name": "/src/05-advanced-hooks/32-typing-custom-hooks.problem.ts",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/05-advanced-hooks/31-typing-custom-hooks.solution.1.ts",
-      "name": "/src/05-advanced-hooks/31-typing-custom-hooks.solution.1.ts",
+      "message": "No test found in suite src/05-advanced-hooks/32-typing-custom-hooks.solution.1.ts",
+      "name": "/src/05-advanced-hooks/32-typing-custom-hooks.solution.1.ts",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/05-advanced-hooks/31-typing-custom-hooks.solution.2.ts",
-      "name": "/src/05-advanced-hooks/31-typing-custom-hooks.solution.2.ts",
+      "message": "No test found in suite src/05-advanced-hooks/32-typing-custom-hooks.solution.2.ts",
+      "name": "/src/05-advanced-hooks/32-typing-custom-hooks.solution.2.ts",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/05-advanced-hooks/31-typing-custom-hooks.solution.3.ts",
-      "name": "/src/05-advanced-hooks/31-typing-custom-hooks.solution.3.ts",
-      "status": "passed",
-    },
-    {
-      "assertionResults": [],
-      "message": "Cannot read properties of null (reading 'useState')",
-      "name": "/src/05-advanced-hooks/32-tuple-return-type.problem.ts",
+      "message": "No test found in suite src/05-advanced-hooks/32-typing-custom-hooks.solution.3.ts",
+      "name": "/src/05-advanced-hooks/32-typing-custom-hooks.solution.3.ts",
       "status": "passed",
     },
     {
       "assertionResults": [],
       "message": "Cannot read properties of null (reading 'useState')",
-      "name": "/src/05-advanced-hooks/32-tuple-return-type.solution.1.ts",
+      "name": "/src/05-advanced-hooks/33-tuple-return-type.problem.ts",
       "status": "passed",
     },
     {
       "assertionResults": [],
       "message": "Cannot read properties of null (reading 'useState')",
-      "name": "/src/05-advanced-hooks/32-tuple-return-type.solution.2.ts",
+      "name": "/src/05-advanced-hooks/33-tuple-return-type.solution.1.ts",
       "status": "passed",
     },
     {
       "assertionResults": [],
       "message": "Cannot read properties of null (reading 'useState')",
-      "name": "/src/05-advanced-hooks/33-generic-hooks.problem.ts",
+      "name": "/src/05-advanced-hooks/33-tuple-return-type.solution.2.ts",
       "status": "passed",
     },
     {
       "assertionResults": [],
       "message": "Cannot read properties of null (reading 'useState')",
-      "name": "/src/05-advanced-hooks/33-generic-hooks.solution.1.ts",
+      "name": "/src/05-advanced-hooks/34-generic-hooks.problem.ts",
       "status": "passed",
     },
     {
       "assertionResults": [],
       "message": "Cannot read properties of null (reading 'useState')",
-      "name": "/src/05-advanced-hooks/33-generic-hooks.solution.2.ts",
+      "name": "/src/05-advanced-hooks/34-generic-hooks.solution.1.ts",
       "status": "passed",
     },
     {
       "assertionResults": [],
       "message": "Cannot read properties of null (reading 'useState')",
-      "name": "/src/05-advanced-hooks/33-generic-hooks.solution.3.ts",
+      "name": "/src/05-advanced-hooks/34-generic-hooks.solution.2.ts",
       "status": "passed",
     },
     {
       "assertionResults": [],
       "message": "Cannot read properties of null (reading 'useState')",
-      "name": "/src/05-advanced-hooks/33-generic-hooks.solution.4.ts",
+      "name": "/src/05-advanced-hooks/34-generic-hooks.solution.3.ts",
       "status": "passed",
     },
     {
       "assertionResults": [],
       "message": "Cannot read properties of null (reading 'useState')",
-      "name": "/src/05-advanced-hooks/33-generic-hooks.solution.5.ts",
+      "name": "/src/05-advanced-hooks/34-generic-hooks.solution.4.ts",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "Cannot read properties of null (reading 'useState')",
+      "name": "/src/05-advanced-hooks/34-generic-hooks.solution.5.ts",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "Cannot read properties of null (reading 'useState')",
+      "name": "/src/05-advanced-hooks/35-function-overloads-in-hooks.problem.ts",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "Cannot read properties of null (reading 'useState')",
+      "name": "/src/05-advanced-hooks/35-function-overloads-in-hooks.solution.1.ts",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "Cannot read properties of null (reading 'useState')",
+      "name": "/src/05-advanced-hooks/35-function-overloads-in-hooks.solution.2.ts",
       "status": "passed",
     },
     {
@@ -663,7 +702,7 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
         },
       ],
       "message": "",
-      "name": "/src/05-advanced-hooks/34-generic-localstorage-hook.problem.ts",
+      "name": "/src/05-advanced-hooks/36-generic-localstorage-hook.problem.ts",
       "status": "passed",
     },
     {
@@ -688,7 +727,7 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
         },
       ],
       "message": "",
-      "name": "/src/05-advanced-hooks/34-generic-localstorage-hook.solution.ts",
+      "name": "/src/05-advanced-hooks/36-generic-localstorage-hook.solution.ts",
       "status": "passed",
     },
     {
@@ -713,7 +752,7 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
         },
       ],
       "message": "",
-      "name": "/src/05-advanced-hooks/35-generic-localstorage-hook-with-zod.problem.tsx",
+      "name": "/src/05-advanced-hooks/37-generic-localstorage-hook-with-zod.problem.tsx",
       "status": "passed",
     },
     {
@@ -738,205 +777,205 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
         },
       ],
       "message": "",
-      "name": "/src/05-advanced-hooks/35-generic-localstorage-hook-with-zod.solution.tsx",
+      "name": "/src/05-advanced-hooks/37-generic-localstorage-hook-with-zod.solution.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/05-advanced-hooks/36-unions-in-usestate.problem.tsx",
-      "name": "/src/05-advanced-hooks/36-unions-in-usestate.problem.tsx",
+      "message": "No test found in suite src/05-advanced-hooks/38-unions-in-usestate.problem.tsx",
+      "name": "/src/05-advanced-hooks/38-unions-in-usestate.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/05-advanced-hooks/36-unions-in-usestate.solution.tsx",
-      "name": "/src/05-advanced-hooks/36-unions-in-usestate.solution.tsx",
+      "message": "No test found in suite src/05-advanced-hooks/38-unions-in-usestate.solution.tsx",
+      "name": "/src/05-advanced-hooks/38-unions-in-usestate.solution.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/05-advanced-hooks/37-discriminated-unions-in-usestate.problem.tsx",
-      "name": "/src/05-advanced-hooks/37-discriminated-unions-in-usestate.problem.tsx",
+      "message": "No test found in suite src/05-advanced-hooks/39-discriminated-unions-in-usestate.problem.tsx",
+      "name": "/src/05-advanced-hooks/39-discriminated-unions-in-usestate.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/05-advanced-hooks/37-discriminated-unions-in-usestate.solution.tsx",
-      "name": "/src/05-advanced-hooks/37-discriminated-unions-in-usestate.solution.tsx",
+      "message": "No test found in suite src/05-advanced-hooks/39-discriminated-unions-in-usestate.solution.tsx",
+      "name": "/src/05-advanced-hooks/39-discriminated-unions-in-usestate.solution.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/05-advanced-hooks/38-discriminated-union-returns-from-custom-hooks.problem.ts",
-      "name": "/src/05-advanced-hooks/38-discriminated-union-returns-from-custom-hooks.problem.ts",
+      "message": "No test found in suite src/05-advanced-hooks/40-discriminated-union-returns-from-custom-hooks.problem.ts",
+      "name": "/src/05-advanced-hooks/40-discriminated-union-returns-from-custom-hooks.problem.ts",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/05-advanced-hooks/39-discriminated-tuples-from-custom-hooks.problem.tsx",
-      "name": "/src/05-advanced-hooks/39-discriminated-tuples-from-custom-hooks.problem.tsx",
+      "message": "No test found in suite src/05-advanced-hooks/41-discriminated-tuples-from-custom-hooks.problem.tsx",
+      "name": "/src/05-advanced-hooks/41-discriminated-tuples-from-custom-hooks.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/05-advanced-hooks/39-discriminated-tuples-from-custom-hooks.solution.tsx",
-      "name": "/src/05-advanced-hooks/39-discriminated-tuples-from-custom-hooks.solution.tsx",
+      "message": "No test found in suite src/05-advanced-hooks/41-discriminated-tuples-from-custom-hooks.solution.tsx",
+      "name": "/src/05-advanced-hooks/41-discriminated-tuples-from-custom-hooks.solution.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/06-types-deep-dive/40-understand-react-namespace-export.explainer.ts",
-      "name": "/src/06-types-deep-dive/40-understand-react-namespace-export.explainer.ts",
+      "message": "No test found in suite src/06-types-deep-dive/42-understand-react-namespace-export.explainer.ts",
+      "name": "/src/06-types-deep-dive/42-understand-react-namespace-export.explainer.ts",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/06-types-deep-dive/41-understanding-jsx-element.explainer.tsx",
-      "name": "/src/06-types-deep-dive/41-understanding-jsx-element.explainer.tsx",
+      "message": "No test found in suite src/06-types-deep-dive/43-understanding-jsx-element.explainer.tsx",
+      "name": "/src/06-types-deep-dive/43-understanding-jsx-element.explainer.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/06-types-deep-dive/42-strongly-typing-children.problem.tsx",
-      "name": "/src/06-types-deep-dive/42-strongly-typing-children.problem.tsx",
+      "message": "No test found in suite src/06-types-deep-dive/44-strongly-typing-children.problem.tsx",
+      "name": "/src/06-types-deep-dive/44-strongly-typing-children.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/06-types-deep-dive/43-how-does-react-represent-html.explainer.ts",
-      "name": "/src/06-types-deep-dive/43-how-does-react-represent-html.explainer.ts",
+      "message": "No test found in suite src/06-types-deep-dive/45-how-does-react-represent-html.explainer.ts",
+      "name": "/src/06-types-deep-dive/45-how-does-react-represent-html.explainer.ts",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/06-types-deep-dive/43-understanding-jsx-intrinsic-elements.explainer.ts",
-      "name": "/src/06-types-deep-dive/43-understanding-jsx-intrinsic-elements.explainer.ts",
+      "message": "No test found in suite src/06-types-deep-dive/45-understanding-jsx-intrinsic-elements.explainer.ts",
+      "name": "/src/06-types-deep-dive/45-understanding-jsx-intrinsic-elements.explainer.ts",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/06-types-deep-dive/44-add-new-global-element.problem.tsx",
-      "name": "/src/06-types-deep-dive/44-add-new-global-element.problem.tsx",
-      "status": "passed",
-    },
-    {
-      "assertionResults": [],
-      "message": "React is not defined",
-      "name": "/src/06-types-deep-dive/45-add-attribute-to-all-elements.problem.tsx",
+      "message": "No test found in suite src/06-types-deep-dive/46-add-new-global-element.problem.tsx",
+      "name": "/src/06-types-deep-dive/46-add-new-global-element.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
       "message": "React is not defined",
-      "name": "/src/06-types-deep-dive/46-add-attribute-to-audio-elements.problem.tsx",
+      "name": "/src/06-types-deep-dive/47-add-attribute-to-all-elements.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
       "message": "React is not defined",
-      "name": "/src/06-types-deep-dive/47-add-attribute-to-div-elements.problem.tsx",
-      "status": "passed",
-    },
-    {
-      "assertionResults": [],
-      "message": "No test found in suite src/07-advanced-patterns/48-generic-context.problem.tsx",
-      "name": "/src/07-advanced-patterns/48-generic-context.problem.tsx",
-      "status": "passed",
-    },
-    {
-      "assertionResults": [],
-      "message": "No test found in suite src/07-advanced-patterns/49-compound-components.problem.tsx",
-      "name": "/src/07-advanced-patterns/49-compound-components.problem.tsx",
-      "status": "passed",
-    },
-    {
-      "assertionResults": [],
-      "message": "No test found in suite src/07-advanced-patterns/50-forward-ref.problem.tsx",
-      "name": "/src/07-advanced-patterns/50-forward-ref.problem.tsx",
-      "status": "passed",
-    },
-    {
-      "assertionResults": [],
-      "message": "No test found in suite src/07-advanced-patterns/51-hoc-problem.tsx",
-      "name": "/src/07-advanced-patterns/51-hoc-problem.tsx",
+      "name": "/src/06-types-deep-dive/48-add-attribute-to-audio-elements.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
       "message": "React is not defined",
-      "name": "/src/07-advanced-patterns/52-as-prop.problem.tsx",
+      "name": "/src/06-types-deep-dive/49-add-attribute-to-div-elements.problem.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "No test found in suite src/07-advanced-patterns/50-generic-context.problem.tsx",
+      "name": "/src/07-advanced-patterns/50-generic-context.problem.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "No test found in suite src/07-advanced-patterns/51-compound-components.problem.tsx",
+      "name": "/src/07-advanced-patterns/51-compound-components.problem.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "No test found in suite src/07-advanced-patterns/52-forward-ref.problem.tsx",
+      "name": "/src/07-advanced-patterns/52-forward-ref.problem.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "No test found in suite src/07-advanced-patterns/53-hoc-problem.tsx",
+      "name": "/src/07-advanced-patterns/53-hoc-problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
       "message": "React is not defined",
-      "name": "/src/07-advanced-patterns/52-as-prop.solution.1.tsx",
+      "name": "/src/07-advanced-patterns/54-as-prop.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
       "message": "React is not defined",
-      "name": "/src/07-advanced-patterns/52-as-prop.solution.2.tsx",
+      "name": "/src/07-advanced-patterns/54-as-prop.solution.1.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/07-advanced-patterns/53-as-prop-with-custom-components.problem.tsx",
-      "name": "/src/07-advanced-patterns/53-as-prop-with-custom-components.problem.tsx",
+      "message": "React is not defined",
+      "name": "/src/07-advanced-patterns/54-as-prop.solution.2.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/07-advanced-patterns/53-as-prop-with-custom-components.solution.tsx",
-      "name": "/src/07-advanced-patterns/53-as-prop-with-custom-components.solution.tsx",
+      "message": "No test found in suite src/07-advanced-patterns/55-as-prop-with-custom-components.problem.tsx",
+      "name": "/src/07-advanced-patterns/55-as-prop-with-custom-components.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/07-advanced-patterns/54-render-props.problem.tsx",
-      "name": "/src/07-advanced-patterns/54-render-props.problem.tsx",
+      "message": "No test found in suite src/07-advanced-patterns/55-as-prop-with-custom-components.solution.tsx",
+      "name": "/src/07-advanced-patterns/55-as-prop-with-custom-components.solution.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/07-advanced-patterns/55-render-props-with-generics.problem.tsx",
-      "name": "/src/07-advanced-patterns/55-render-props-with-generics.problem.tsx",
+      "message": "No test found in suite src/07-advanced-patterns/56-render-props.problem.tsx",
+      "name": "/src/07-advanced-patterns/56-render-props.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/07-advanced-patterns/56-record-of-components-with-same-props.problem.tsx",
-      "name": "/src/07-advanced-patterns/56-record-of-components-with-same-props.problem.tsx",
+      "message": "No test found in suite src/07-advanced-patterns/57-render-props-with-generics.problem.tsx",
+      "name": "/src/07-advanced-patterns/57-render-props-with-generics.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-external-libraries/57-react-hook-form.problem.tsx",
-      "name": "/src/08-external-libraries/57-react-hook-form.problem.tsx",
+      "message": "No test found in suite src/07-advanced-patterns/58-record-of-components-with-same-props.problem.tsx",
+      "name": "/src/07-advanced-patterns/58-record-of-components-with-same-props.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-external-libraries/58-react-query.problem.tsx",
-      "name": "/src/08-external-libraries/58-react-query.problem.tsx",
+      "message": "No test found in suite src/08-external-libraries/59-react-hook-form.problem.tsx",
+      "name": "/src/08-external-libraries/59-react-hook-form.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-external-libraries/59-redux-toolkit.problem.tsx",
-      "name": "/src/08-external-libraries/59-redux-toolkit.problem.tsx",
+      "message": "No test found in suite src/08-external-libraries/60-react-query.problem.tsx",
+      "name": "/src/08-external-libraries/60-react-query.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-external-libraries/60-zustand.problem.tsx",
-      "name": "/src/08-external-libraries/60-zustand.problem.tsx",
+      "message": "No test found in suite src/08-external-libraries/61-redux-toolkit.problem.tsx",
+      "name": "/src/08-external-libraries/61-redux-toolkit.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-external-libraries/61-reusable-form-library-with-zod.problem.tsx",
-      "name": "/src/08-external-libraries/61-reusable-form-library-with-zod.problem.tsx",
+      "message": "No test found in suite src/08-external-libraries/62-zustand.problem.tsx",
+      "name": "/src/08-external-libraries/62-zustand.problem.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "No test found in suite src/08-external-libraries/63-reusable-form-library-with-zod.problem.tsx",
+      "name": "/src/08-external-libraries/63-reusable-form-library-with-zod.problem.tsx",
       "status": "passed",
     },
   ],
