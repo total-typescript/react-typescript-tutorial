@@ -13,7 +13,7 @@ const buttonPropsMap = {
     className: "bg-green-500 text-white",
     type: "button",
   },
-};
+} satisfies Record<string, ComponentProps<"button">>;
 
 type ButtonProps = {
   variant: keyof typeof buttonPropsMap;

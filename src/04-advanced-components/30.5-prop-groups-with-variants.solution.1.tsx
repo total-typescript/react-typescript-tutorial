@@ -1,6 +1,6 @@
 import { ComponentProps } from "react";
 
-const buttonPropsMap = {
+const buttonPropsMap: Record<string, ComponentProps<"button">> = {
   reset: {
     className: "bg-blue-500 text-white",
     type: "reset",
