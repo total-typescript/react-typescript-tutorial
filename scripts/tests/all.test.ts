@@ -5,8 +5,6 @@ import { cleanVitestOutput } from "./cleanVitestOutput";
 
 const rootFolder = path.resolve(__dirname, "../..");
 
-console.log(rootFolder);
-
 const sanitizeForRegex = (str: string) => {
   return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // $& means the whole matched string
 };
