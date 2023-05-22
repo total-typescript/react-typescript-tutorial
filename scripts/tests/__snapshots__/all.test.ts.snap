@@ -395,7 +395,7 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
     },
     {
       "assertionResults": [],
-      "message": "React is not defined",
+      "message": "No test found in suite src/03-hooks/18-element-refs.explainer.tsx",
       "name": "/src/03-hooks/18-element-refs.explainer.tsx",
       "status": "passed",
     },
@@ -587,8 +587,7 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
     },
     {
       "assertionResults": [],
-      "message": "Transform failed with 1 error:
-/src/04-advanced-components/31-prop-groups-with-variants.solution.2.tsx:16:2: ERROR: Expected \\";\\" but found \\"satisfies\\"",
+      "message": "No test found in suite src/04-advanced-components/31-prop-groups-with-variants.solution.2.tsx",
       "name": "/src/04-advanced-components/31-prop-groups-with-variants.solution.2.tsx",
       "status": "passed",
     },
@@ -874,19 +873,19 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
     },
     {
       "assertionResults": [],
-      "message": "React is not defined",
+      "message": "No test found in suite src/06-types-deep-dive/48-add-attribute-to-all-elements.problem.tsx",
       "name": "/src/06-types-deep-dive/48-add-attribute-to-all-elements.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "React is not defined",
+      "message": "No test found in suite src/06-types-deep-dive/49-add-attribute-to-audio-elements.problem.tsx",
       "name": "/src/06-types-deep-dive/49-add-attribute-to-audio-elements.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "React is not defined",
+      "message": "No test found in suite src/06-types-deep-dive/50-add-attribute-to-div-elements.problem.tsx",
       "name": "/src/06-types-deep-dive/50-add-attribute-to-div-elements.problem.tsx",
       "status": "passed",
     },
@@ -934,19 +933,19 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
     },
     {
       "assertionResults": [],
-      "message": "React is not defined",
+      "message": "No test found in suite src/07-advanced-patterns/55-as-prop.problem.tsx",
       "name": "/src/07-advanced-patterns/55-as-prop.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "React is not defined",
+      "message": "No test found in suite src/07-advanced-patterns/55-as-prop.solution.1.tsx",
       "name": "/src/07-advanced-patterns/55-as-prop.solution.1.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "React is not defined",
+      "message": "No test found in suite src/07-advanced-patterns/55-as-prop.solution.2.tsx",
       "name": "/src/07-advanced-patterns/55-as-prop.solution.2.tsx",
       "status": "passed",
     },

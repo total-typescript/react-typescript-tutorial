@@ -132,7 +132,15 @@
     "e-62": "tt-cli run 62",
     "s-62": "tt-cli run 62 --solution",
     "e-63": "tt-cli run 63",
-    "s-63": "tt-cli run 63 --solution"
+    "s-63": "tt-cli run 63 --solution",
+    "e-42": "tt-cli run 42",
+    "s-42": "tt-cli run 42 --solution",
+    "e-45": "tt-cli run 45",
+    "s-45": "tt-cli run 45 --solution",
+    "e-52": "tt-cli run 52",
+    "s-52": "tt-cli run 52 --solution",
+    "e-64": "tt-cli run 64",
+    "s-64": "tt-cli run 64 --solution"
   },
   "dependencies": {
     "@types/express": "^4.17.13",
