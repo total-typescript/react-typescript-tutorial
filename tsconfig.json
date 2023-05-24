@@ -1,10 +1,7 @@
 {
   "compilerOptions": {
-    "types": [
-      "vitest/importMeta"
-    ],
     "target": "es2020",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "module": "ES2022",
     "moduleResolution": "node",
     "noEmit": true,
