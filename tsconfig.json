@@ -4,7 +4,7 @@
       "vitest/importMeta"
     ],
     "target": "es2020",
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "module": "ES2022",
     "moduleResolution": "node",
     "noEmit": true,
