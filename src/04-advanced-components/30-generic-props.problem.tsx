@@ -1,4 +1,4 @@
-import { Key, ReactNode } from "react";
+import { ReactNode } from "react";
 
 interface TableProps {
   rows: any[];
@@ -11,7 +11,7 @@ export const Table = (props: TableProps) => {
     <table>
       <tbody>
         {props.rows.map((row) => (
-          <tr key={row[props.key]}>{props.renderRow(row)}</tr>
+          <tr>{props.renderRow(row)}</tr>
         ))}
       </tbody>
     </table>
