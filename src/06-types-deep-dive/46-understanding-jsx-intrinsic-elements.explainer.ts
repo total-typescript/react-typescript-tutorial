@@ -1,1 +1,5 @@
-export type JSXElementTypes = keyof JSX.IntrinsicElements;
+/**
+ * 1. What is JSX.IntrinsicElements?
+ */
+
+export type Example = React.JSX.IntrinsicElements;

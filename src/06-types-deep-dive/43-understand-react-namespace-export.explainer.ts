@@ -1,11 +1,14 @@
-import React from "react";
-
 /**
- * Try deleting each of these lines in the
- * types themselves:
+ * Questions to answer:
  */
 
-// export = React;
-// export as namespace React;
+// 1. What is the React namespace?
+type Example = React.ReactNode;
+//             ^?
 
-// What is ExoticComponent?
+/**
+ * 2a. Most namespaces can't be used as values. So how come
+ * we can use React as a value here?
+ */
+const element = React.createElement("div");
+//              ^?
