@@ -5,7 +5,7 @@ const presetSizes = {
 
 type Size = keyof typeof presetSizes;
 
-type LooseSize = Size | string;
+type LooseSize = Size | (string & {});
 
 export const Icon = (props: { size: LooseSize }) => {
   return (
@@ -21,7 +21,6 @@ export const Icon = (props: { size: LooseSize }) => {
 };
 
 <>
-  {/* Autocomplete for sm and xs are no longer working! */}
   <Icon size="sm"></Icon>
   <Icon size="xs"></Icon>
   <Icon size="10px"></Icon>
