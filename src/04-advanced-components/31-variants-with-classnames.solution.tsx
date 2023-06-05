@@ -1,5 +1,3 @@
-// keyof/typeof/as const
-
 const classNamesMap = {
   primary: "bg-blue-500 text-white",
   secondary: "bg-gray-200 text-black",
