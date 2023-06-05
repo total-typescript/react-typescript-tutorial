@@ -5,9 +5,7 @@ export const Component = <TAs extends keyof JSX.IntrinsicElements>(
 ) => {
   const Comp = props.as as string;
 
-  // In this version, we can remove the 'as any' because
-  // TypeScript is able to keep up with the inference
-  return <Comp {...props}></Comp>;
+  return <Comp {...(props as any)}></Comp>;
 };
 
 const example1 = <Component as="a" href="awdawd"></Component>;

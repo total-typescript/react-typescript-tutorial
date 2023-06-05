@@ -14,7 +14,7 @@ const createRequiredContext = () => {
     return contextValue;
   };
 
-  return [useContext, context.Provider] as const;
+  return [useContext, context.Provider];
 };
 
 const [useUser, UserProvider] = createRequiredContext<{

@@ -8,13 +8,7 @@ export const Component = <
   } & ComponentProps<T>,
 ) => {
   const Comp = props.as;
-  return (
-    <Comp
-      // The 'as any' is still needed, because 'as' is SO generic
-      // that TypeScript can't handle it.
-      {...props}
-    ></Comp>
-  );
+  return <Comp {...props}></Comp>;
 };
 
 const Link = (props: { href: string; children?: React.ReactNode }) => {
