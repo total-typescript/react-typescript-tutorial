@@ -97,6 +97,8 @@ src/04-advanced-components/28-passing-react-components-vs-passing-react-nodes.pr
 src/04-advanced-components/28-passing-react-components-vs-passing-react-nodes.problem.tsx(30,21): error TS7006: Parameter 'index' implicitly has an 'any' type.
 src/04-advanced-components/28-passing-react-components-vs-passing-react-nodes.solution.1.tsx(30,9): error TS2322: Type '(index: number) => number' is not assignable to type 'FC<number>'.
   Type 'number' is not assignable to type 'ReactElement<any, any>'.
+src/04-advanced-components/29-toggle-props.problem.tsx(25,5): error TS2578: Unused '@ts-expect-error' directive.
+src/04-advanced-components/29-toggle-props.problem.tsx(29,4): error TS2578: Unused '@ts-expect-error' directive.
 src/04-advanced-components/30-generic-props.problem.tsx(38,9): error TS2578: Unused '@ts-expect-error' directive.
 src/04-advanced-components/30-generic-props.problem.tsx(50,17): error TS2578: Unused '@ts-expect-error' directive.
 src/04-advanced-components/33-prop-groups-with-variants.problem.tsx(23,11): error TS2322: Type '{ children: string; className: string; type: string; } | { children: string; className: string; type: string; } | { children: string; className: string; type: string; }' is not assignable to type 'DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>'.
@@ -130,6 +132,11 @@ src/05-advanced-hooks/42-discriminated-tuples-from-custom-hooks.problem.tsx(31,3
 src/05-advanced-hooks/42-discriminated-tuples-from-custom-hooks.problem.tsx(34,16): error TS18048: 'value' is possibly 'undefined'.
 src/05-advanced-hooks/42-discriminated-tuples-from-custom-hooks.problem.tsx(34,22): error TS2339: Property 'title' does not exist on type 'Error | { title: string; }'.
   Property 'title' does not exist on type 'Error'.
+src/06-types-deep-dive/44-understanding-jsx-element.explainer.tsx(23,4): error TS2786: 'Component2' cannot be used as a JSX component.
+  Its return type 'ReactNode' is not a valid JSX element.
+    Type 'undefined' is not assignable to type 'Element | null'.
+src/06-types-deep-dive/47-add-new-global-element.problem.tsx(2,3): error TS2339: Property 'something' does not exist on type 'JSX.IntrinsicElements'.
+src/06-types-deep-dive/47-add-new-global-element.problem.tsx(2,23): error TS2339: Property 'something' does not exist on type 'JSX.IntrinsicElements'.
 src/06-types-deep-dive/50-add-attribute-to-div-elements.problem.tsx(6,7): error TS2717: Subsequent property declarations must have the same type.  Property 'div' must be of type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>', but here has type 'ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement> & { something?: string | undefined; }'.
 src/06-types-deep-dive/50-add-attribute-to-div-elements.problem.tsx(13,30): error TS2322: Type '{ something: string; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
   Property 'something' does not exist on type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
@@ -142,6 +149,8 @@ src/07-advanced-patterns/51-required-context.problem.tsx(59,11): error TS2322: T
 src/07-advanced-patterns/53-forward-ref-with-generics.explainer.1.tsx(26,28): error TS2344: Type 'false' does not satisfy the constraint 'true'.
 src/07-advanced-patterns/53-forward-ref-with-generics.explainer.2.tsx(26,28): error TS2344: Type 'false' does not satisfy the constraint 'true'.
 src/07-advanced-patterns/55-as-prop.problem.tsx(13,5): error TS2578: Unused '@ts-expect-error' directive.
+src/07-advanced-patterns/55-as-prop.solution.2.tsx(10,11): error TS2322: Type '{ as: TAs; ref?: LegacyRef<HTMLDivElement> | undefined; key?: Key | null | undefined; defaultChecked?: boolean | undefined; defaultValue?: string | ... 2 more ... | undefined; ... 259 more ...; onTransitionEndCapture?: TransitionEventHandler<...> | undefined; } | ... 122 more ... | { ...; }' is not assignable to type 'IntrinsicAttributes'.
+  Type '{ as: TAs; id: string; }' has no properties in common with type 'IntrinsicAttributes'.
 src/07-advanced-patterns/56-as-prop-with-custom-components.problem.tsx(5,11): error TS2604: JSX element type 'Comp' does not have any construct or call signatures.
 src/07-advanced-patterns/56-as-prop-with-custom-components.problem.tsx(12,22): error TS2322: Type '{ as: (props: { href: string; children?: ReactNode; }) => Element; href: string; }' is not assignable to type 'IntrinsicAttributes & { as: unknown; }'.
   Property 'href' does not exist on type 'IntrinsicAttributes & { as: unknown; }'.
@@ -861,7 +870,7 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/06-types-deep-dive/43-understand-react-namespace-export.explainer.ts",
+      "message": "React is not defined",
       "name": "/src/06-types-deep-dive/43-understand-react-namespace-export.explainer.ts",
       "status": "passed",
     },
@@ -893,6 +902,12 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
       "assertionResults": [],
       "message": "No test found in suite src/06-types-deep-dive/47-add-new-global-element.problem.tsx",
       "name": "/src/06-types-deep-dive/47-add-new-global-element.problem.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "No test found in suite src/06-types-deep-dive/47-add-new-global-element.solution.tsx",
+      "name": "/src/06-types-deep-dive/47-add-new-global-element.solution.tsx",
       "status": "passed",
     },
     {
