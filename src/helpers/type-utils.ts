@@ -22,6 +22,18 @@ export type MergeInsertions<T> = T extends object
 
 export type Alike<X, Y> = Equal<MergeInsertions<X>, MergeInsertions<Y>>;
 
+/**
+ * Expect that one type is assignable to another.
+ *
+ * @example
+ *
+ * type tests = [
+ *   // Expect that `number` is assignable to `1`.
+ *   Expect<ExpectExtends<1, number>>,
+ *   // Expect that `abc` is assignable to `string`
+ *   Expect<ExpectExtends<'abc', string>>,
+ * ];
+ */
 export type ExpectExtends<VALUE, EXPECTED> = EXPECTED extends VALUE
   ? true
   : false;
