@@ -27,6 +27,8 @@ export const Parent = () => {
         renderRow={<div></div>}
       />
       <Table
+        // React.FC doesn't quite work here, because you
+        // can't return numbers from an FC
         renderRow={(index) => {
           return index;
         }}
