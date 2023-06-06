@@ -9,7 +9,12 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "fake-external-lib": [
+        "./src/fake-external-lib/index"
+      ],
+    }
   },
   "include": [
     "src"

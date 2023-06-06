@@ -1,13 +1,16 @@
-import ReactSelect from "react-select";
+import ReactSelect, { GroupBase, Props } from "react-select";
 import { Equal, Expect } from "../helpers/type-utils";
 
 /**
- * 1. Try to figure out the types the props of the Select component should have,
- * including the generic types!
- *
- * Here's a clue: ReactSelect exports a type called 'Props'...
+ * You need to mimic the exact type of the Props type exported by react-select.
  */
-export const Select = (props) => {
+export const Select = <
+  Option,
+  IsMulti extends boolean = false,
+  Group extends GroupBase<Option> = GroupBase<Option>,
+>(
+  props: Props<Option, IsMulti, Group>,
+) => {
   return <ReactSelect {...props} />;
 };
 
@@ -31,7 +34,6 @@ const guitarists: Option[] = [
   <Select
     options={guitarists}
     onChange={(option) => {
-      // It should infer the type of option!
       // If isMulti is false, it should NOT be an array
       type test = Expect<Equal<typeof option, Option | null>>;
     }}
