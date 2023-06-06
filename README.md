@@ -2,7 +2,7 @@
 
 ## Quickstart
 
-Clone this repo or [open in Gitpod](https://gitpod.io/#https://github.com/total-typescript/beginners-typescript).
+Clone this repo or [open in Gitpod](https://gitpod.io/#https://github.com/total-typescript/react-typescript-tutorial).
 
 ```sh
 # Installs all dependencies
@@ -28,9 +28,9 @@ The `exercise` script will run TypeScript typechecks and a test suite on the exe
 
 This course encourages **active, exploratory learning**. In the video, I'll explain a problem, and **you'll be asked to try to find a solution**. To attempt a solution, you'll need to:
 
-1. Check out [TypeScript's docs](https://www.typescriptlang.org/docs/handbook/intro.html)
-2. Try to find something that looks relevant.
-3. Give it a go to see if it solves the problem.
+1. Check out [TypeScript's docs](https://www.typescriptlang.org/docs/handbook/intro.html) or the [React TypeScript cheatsheet](https://react-typescript-cheatsheet.netlify.app/)
+1. Try to find something that looks relevant.
+1. Give it a go to see if it solves the problem.
 
 You'll know if you've succeeded because the tests will pass.
 
