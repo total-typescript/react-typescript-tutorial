@@ -5,7 +5,7 @@
   "author": "Matt Pocock <mattpocockvoice@gmail.com>",
   "license": "GPL",
   "devDependencies": {
-    "@total-typescript/exercise-cli": "0.1.0",
+    "@total-typescript/exercise-cli": "^0.2.2",
     "cross-fetch": "^3.1.5",
     "jsdom": "^21.1.1",
     "prettier": "^2.8.7",
@@ -140,7 +140,11 @@
     "e-52": "tt-cli run 52",
     "s-52": "tt-cli run 52 --solution",
     "e-64": "tt-cli run 64",
-    "s-64": "tt-cli run 64 --solution"
+    "s-64": "tt-cli run 64 --solution",
+    "e-65": "tt-cli run 65",
+    "s-65": "tt-cli run 65 --solution",
+    "e-66": "tt-cli run 66",
+    "s-66": "tt-cli run 66 --solution"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.29.12",
