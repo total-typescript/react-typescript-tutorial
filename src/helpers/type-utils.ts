@@ -29,14 +29,12 @@ export type Alike<X, Y> = Equal<MergeInsertions<X>, MergeInsertions<Y>>;
  *
  * type tests = [
  *   // Expect that `number` is assignable to `1`.
- *   Expect<ExpectExtends<1, number>>,
+ *   Expect<Extends<1, number>>,
  *   // Expect that `abc` is assignable to `string`
- *   Expect<ExpectExtends<'abc', string>>,
+ *   Expect<Extends<'abc', string>>,
  * ];
  */
-export type ExpectExtends<VALUE, EXPECTED> = EXPECTED extends VALUE
-  ? true
-  : false;
+export type Extends<VALUE, EXPECTED> = EXPECTED extends VALUE ? true : false;
 export type ExpectValidArgs<
   FUNC extends (...args: any[]) => any,
   ARGS extends any[],

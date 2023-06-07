@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Equal, Expect, ExpectExtends } from "../helpers/type-utils";
+import { Equal, Expect, Extends } from "../helpers/type-utils";
 
 /**
  * Here, we're creating a wrapper around react-hook-form's useForm hook.
@@ -39,7 +39,7 @@ customForm.handleSubmit((values) => {
   type test = Expect<
     // Expect that inside handleSubmit, it's inferred as
     // { firstName: string; lastName: string }
-    ExpectExtends<
+    Extends<
       {
         firstName: string;
         lastName: string;

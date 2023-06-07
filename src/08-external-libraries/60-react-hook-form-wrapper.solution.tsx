@@ -1,5 +1,5 @@
 import { DefaultValues, FieldValues, useForm } from "react-hook-form";
-import { Equal, Expect, ExpectExtends } from "../helpers/type-utils";
+import { Equal, Expect, Extends } from "../helpers/type-utils";
 
 /**
  * We add TValues as a generic to our hook, and use it to type the defaultValues.
@@ -41,7 +41,7 @@ customForm.handleSubmit((values) => {
   type test = Expect<
     // Expect that inside handleSubmit, it's inferred as
     // { firstName: string; lastName: string }
-    ExpectExtends<
+    Extends<
       {
         firstName: string;
         lastName: string;
