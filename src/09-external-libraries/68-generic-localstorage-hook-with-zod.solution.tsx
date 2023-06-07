@@ -2,15 +2,18 @@ import { it } from "vitest";
 import { Equal, Expect } from "../helpers/type-utils";
 import { z } from "zod";
 
-export const useLocalStorage = <T,>(prefix: string, schema: z.Schema<T>) => {
+export const useLocalStorage = <TSchema extends z.Schema>(
+  prefix: string,
+  schema: TSchema,
+) => {
   const schemaOrNull = schema.nullable();
   return {
-    get: (key: string): T | null => {
+    get: (key: string): z.infer<TSchema> | null => {
       return schemaOrNull.parse(
         JSON.parse(window.localStorage.getItem(prefix + key) || "null"),
       );
     },
-    set: (key: string, value: T) => {
+    set: (key: string, value: z.infer<TSchema>) => {
       window.localStorage.setItem(prefix + key, JSON.stringify(value));
     },
   };

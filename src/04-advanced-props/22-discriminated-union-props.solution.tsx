@@ -1,6 +1,3 @@
-// How to use discriminated unions in props
-// With variant
-
 type ModalProps =
   | {
       variant: "no-title";
