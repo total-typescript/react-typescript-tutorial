@@ -14,6 +14,9 @@
       "fake-external-lib": [
         "./src/fake-external-lib/index"
       ],
+      "fake-external-component": [
+        "./src/fake-external-lib/component"
+      ]
     }
   },
   "include": [
