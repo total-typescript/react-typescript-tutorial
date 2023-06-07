@@ -7,6 +7,10 @@ type ModalProps =
       title: string;
     };
 
+/**
+ * 1. How do we add a `buttonColor` prop to the `ModalProps` type that is
+ * _always_ required across different variants?
+ */
 export const Modal = (props: ModalProps) => {
   if (props.variant === "no-title") {
     return <div>No title</div>;

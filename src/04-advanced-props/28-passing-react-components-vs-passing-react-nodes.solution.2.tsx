@@ -1,7 +1,10 @@
 import { Equal, Expect } from "../helpers/type-utils";
 
+/**
+ * We can also use React.FC in this position to fix the errors.
+ */
 interface TableProps {
-  renderRow: (rowIndex: number) => React.ReactNode;
+  renderRow: React.FC<number>;
 }
 
 const Table = (props: TableProps) => {

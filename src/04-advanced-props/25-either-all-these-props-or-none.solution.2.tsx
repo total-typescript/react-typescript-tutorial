@@ -1,5 +1,9 @@
 import { ChangeEventHandler } from "react";
 
+/**
+ * 1. Consider whether you think 'undefined' or 'never'
+ * is better for the 'value' and 'onChange' props.
+ */
 type InputProps = (
   | {
       value: string;

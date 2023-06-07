@@ -1,5 +1,11 @@
-// How to use discriminated unions in props
-// With variant
+/**
+ * We've got the same problem as the previous exercise, but this time we're
+ * destructuring our props.
+ *
+ * 1. Figure out why the error on 'title' is happening.
+ *
+ * 2. Find a way to fix the error.
+ */
 
 type ModalProps =
   | {

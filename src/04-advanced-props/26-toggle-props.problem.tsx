@@ -1,3 +1,16 @@
+/**
+ * In this exercise, we've got an EmbeddedPlayground component that can either
+ * use Stackblitz or CodeSandbox.
+ *
+ * We want to make sure that if useStackblitz is true, then stackblitzId is
+ * required. If useStackblitz is false (or not specified), then codeSandboxId
+ * is required.
+ *
+ * 1. Rewrite the EmbeddedPlaygroundProps type so that it enforces this.
+ *
+ * Hint - you'll need a discriminated union!
+ */
+
 type EmbeddedPlaygroundProps = {
   useStackblitz?: boolean;
   stackblitzId?: string;

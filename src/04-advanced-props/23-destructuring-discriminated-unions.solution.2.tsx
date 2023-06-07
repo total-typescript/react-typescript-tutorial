@@ -1,6 +1,3 @@
-// How to use discriminated unions in props
-// With variant
-
 type ModalProps =
   | {
       variant: "no-title";
@@ -10,6 +7,12 @@ type ModalProps =
       title: string;
     };
 
+/**
+ * The best solution is to destructure AFTER the variant has been narrowed.
+ *
+ * This gives TypeScript the chance to apply the narrowing to the 'props' object,
+ * which it understands that 'variant' is a property of.
+ */
 export const Modal = (props: ModalProps) => {
   if (props.variant === "no-title") {
     return <div>No title</div>;

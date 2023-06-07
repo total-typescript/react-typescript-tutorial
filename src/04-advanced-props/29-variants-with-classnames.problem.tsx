@@ -9,8 +9,10 @@ type ButtonProps = {
    * This isn't ideal - we have to manually sync
    * the type of variant with the object above.
    *
-   * How do we type this so that there's a single
-   * source of truth for the variant?
+   * 1. How do we rearrange this code so that we don't
+   * have to manually sync the types?
+   *
+   * Hint: you'll need 'typeof' and 'keyof'.
    */
   variant: "primary" | "secondary" | "success";
 };

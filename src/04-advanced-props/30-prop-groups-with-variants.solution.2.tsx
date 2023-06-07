@@ -1,5 +1,12 @@
 import { ComponentProps } from "react";
 
+/**
+ * satisfies gives us what we need. Now, we get autocomplete inside
+ * buttonPropsMap, and we get type safety on the variant in ButtonProps.
+ *
+ * That's because satisfies ensures buttonPropsMap is a Record, but doesn't
+ * override its type.
+ */
 const buttonPropsMap = {
   reset: {
     className: "bg-blue-500 text-white",

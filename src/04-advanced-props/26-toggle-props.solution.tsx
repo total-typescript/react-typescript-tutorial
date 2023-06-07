@@ -1,3 +1,11 @@
+/**
+ * This is just another kind of discriminated union - one based on a
+ * boolean, not a string.
+ *
+ * Note that we use an optional property for the boolean in the
+ * CodeSandbox version, because if the user doesn't specify it (passes
+ * undefined), we want to default to it.
+ */
 type EmbeddedPlaygroundProps =
   | {
       useStackblitz: true;

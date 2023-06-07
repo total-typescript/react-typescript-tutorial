@@ -5,6 +5,15 @@ const presetSizes = {
 
 type Size = keyof typeof presetSizes;
 
+/**
+ * Oddly, this works. Forcing string to intersect with {} does SOMETHING
+ * which makes TypeScript do what we want.
+ *
+ * 1. Doing (string & unknown) also works. Try it out!
+ *
+ * Honestly, I'm not sure why this works. Some compiler-diving is required
+ * to figure it out.
+ */
 type LooseSize = Size | (string & {});
 
 export const Icon = (props: { size: LooseSize }) => {

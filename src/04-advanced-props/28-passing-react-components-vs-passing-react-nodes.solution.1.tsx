@@ -1,7 +1,15 @@
 import { Equal, Expect } from "../helpers/type-utils";
 
+/**
+ * The errors are happening because the dev didn't understand what
+ * React.ReactNode was for.
+ *
+ * By changing it to a function which returns a React.ReactNode,
+ * we can fix the errors.
+ */
+
 interface TableProps {
-  renderRow: React.ReactNode;
+  renderRow: (rowIndex: number) => React.ReactNode;
 }
 
 const Table = (props: TableProps) => {

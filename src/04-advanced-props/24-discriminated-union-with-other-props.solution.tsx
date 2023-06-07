@@ -1,6 +1,8 @@
-// How to use discriminated unions in props
-// With variant
-
+/**
+ * This works because of the parentheses around the discriminated union.
+ *
+ * 1. Try removing the parentheses, and try to explain the behaviour you notice.
+ */
 type ModalProps = (
   | {
       variant: "no-title";

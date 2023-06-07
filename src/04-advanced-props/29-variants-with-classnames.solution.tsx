@@ -4,6 +4,13 @@ const classNamesMap = {
   success: "bg-green-500 text-white",
 };
 
+/**
+ * By using 'typeof' and 'keyof', we can _derive_ the type of
+ * variant from the classNamesMap object.
+ *
+ * 1. Try adding a new key to classNamesMap, and see how the
+ * type of variant automatically updates.
+ */
 type ButtonProps = {
   variant: keyof typeof classNamesMap;
 };

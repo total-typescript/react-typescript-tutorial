@@ -7,6 +7,10 @@ type InputProps = AllOrNothing<{
   label: string;
 };
 
+/**
+ * This is what I'd do in a production app - capture this
+ * logic in a reusable type helper.
+ */
 type AllOrNothing<TProps extends Record<string, any>> =
   | TProps
   | {

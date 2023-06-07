@@ -1,5 +1,15 @@
 import { ComponentProps } from "react";
 
+/**
+ * Sadly, this doesn't work. By typing the map with a ':', we DO
+ * get autocomplete inside buttonPropsMap. BUT we also lose the
+ * type safety on the variant in ButtonProps.
+ *
+ * ButtonProps['variant'] is now typed as string, not
+ * 'reset' | 'submit' | 'next'.
+ *
+ * If only there was a way to get the best of both worlds...
+ */
 const buttonPropsMap: Record<string, ComponentProps<"button">> = {
   reset: {
     className: "bg-blue-500 text-white",

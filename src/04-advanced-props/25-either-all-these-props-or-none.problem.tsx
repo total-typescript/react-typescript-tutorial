@@ -1,5 +1,23 @@
 import { ChangeEventHandler } from "react";
 
+/**
+ * In this exercise, we want to create a component that can either have
+ * `value` and `onChange` props, or neither of those props.
+ *
+ * We ALSO want to have label as a required prop.
+ *
+ * 1. Figure out why the errors are occurring on the `Test` component.
+ *
+ * 2. Find a way to fix the errors.
+ *
+ * 3. As a bonus, try to make a reusable type helper called AllOrNothing<TProps>
+ * which can be used like this:
+ *
+ * AllOrNothing<{
+ *   value: string;
+ *   onChange: ChangeEventHandler;
+ * }>
+ */
 type InputProps = (
   | {
       value: string;
