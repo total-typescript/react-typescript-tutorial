@@ -1,11 +1,16 @@
-import {
-  QueryFunctionContext,
-  QueryKey,
-  useQuery,
-} from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useAuthToken } from "fake-external-lib";
 import { Equal, Expect } from "../helpers/type-utils";
 
+/**
+ * Here, we're attempting to create a wrapper around react-query's useQuery
+ * hook. We're doing that so we can inject the auth token into the queryFn
+ * without having to pass it in every time.
+ *
+ * 1. Change the type definitions of useApi to fix the errors below. Where
+ * possible, use types from react-query to describe the types of the
+ * parameters.
+ */
 const useApi = (
   queryKey: any[],
   queryFn: (key: any, token: string) => Promise<any>,
