@@ -9,11 +9,11 @@ declare global {
 }
 
 <>
-  <something-solution id="123"></something-solution>
+  <something-solution id="123" />
 
   {/* @ts-expect-error */}
-  <something-solution></something-solution>
+  <something-solution />
 
   {/* @ts-expect-error */}
-  <something-solution id={123}></something-solution>
+  <something-solution id={123} />
 </>;
