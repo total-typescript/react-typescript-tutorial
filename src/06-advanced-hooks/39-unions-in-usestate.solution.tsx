@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 import { appendVideoToDomAndPlay, fetchVideo } from "fake-external-lib";
 
+type State = "loading" | "loaded" | "error";
+
 export const useLoadAsyncVideo = (src: string) => {
   const [state, setState] = useState<State>("loading");
 
