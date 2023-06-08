@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
+import { appendVideoToDomAndPlay, fetchVideo } from "fake-external-lib";
 
-const fetchVideo = (src: string, signal: AbortSignal) => {
-  return fetch(src, {
-    signal,
-  }).then((response) => response.blob());
-};
-
-const appendVideoToDomAndPlay = (blob: Blob) => {
-  const video = document.createElement("video");
-  video.src = URL.createObjectURL(blob);
-  video.play();
-};
-
+/**
+ * This is a complex problem. We want to load a video from a URL and play it.
+ * We also want to show a loading spinner while it loads, and an error message
+ * if it fails.
+ *
+ * The code is handling this with several different states: "loading", "loaded",
+ * and "error". But currently, the type of state is just string.
+ *
+ * 1. See if you can fix the errors below by making the type of state more specific.
+ */
 export const useLoadAsyncVideo = (src: string) => {
   const [state, setState] = useState("loading");
 
@@ -21,9 +20,7 @@ export const useLoadAsyncVideo = (src: string) => {
 
     let cancelled = false;
 
-    const abortController = new AbortController();
-
-    fetchVideo(src, abortController.signal)
+    fetchVideo(src)
       .then((blob) => {
         if (cancelled) {
           return;
@@ -42,7 +39,6 @@ export const useLoadAsyncVideo = (src: string) => {
 
     return () => {
       cancelled = true;
-      abortController.abort();
     };
   }, [src]);
 

@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
-export const useId = (
-  defaultId: string,
-): [string, React.Dispatch<React.SetStateAction<string>>] => {
+export const useId = (defaultId: string) => {
   const [id, setId] = useState(defaultId);
 
-  return [id, setId];
+  return [id, setId] as const;
 };
 
 const [id, setId] = useId("1");

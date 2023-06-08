@@ -1,19 +1,6 @@
 import { useEffect, useState } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
-
-type State = "loading" | "loaded" | "error";
-
-const fetchVideo = (src: string, signal: AbortSignal) => {
-  return fetch(src, {
-    signal,
-  }).then((response) => response.blob());
-};
-
-const appendVideoToDomAndPlay = (blob: Blob) => {
-  const video = document.createElement("video");
-  video.src = URL.createObjectURL(blob);
-  video.play();
-};
+import { appendVideoToDomAndPlay, fetchVideo } from "fake-external-lib";
 
 export const useLoadAsyncVideo = (src: string) => {
   const [state, setState] = useState<State>("loading");
@@ -23,9 +10,7 @@ export const useLoadAsyncVideo = (src: string) => {
 
     let cancelled = false;
 
-    const abortController = new AbortController();
-
-    fetchVideo(src, abortController.signal)
+    fetchVideo(src)
       .then((blob) => {
         if (cancelled) {
           return;
@@ -44,7 +29,6 @@ export const useLoadAsyncVideo = (src: string) => {
 
     return () => {
       cancelled = true;
-      abortController.abort();
     };
   }, [src]);
 

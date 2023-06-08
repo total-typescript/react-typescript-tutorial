@@ -17,25 +17,31 @@ export function useStateAsObject<T>(initial?: T) {
   };
 }
 
-const example = useStateAsObject({ name: "Matt" });
+/**
+ * If you DO pass a default value, the result should NOT include undefined
+ */
+const notUndefined = useStateAsObject({ name: "Matt" });
 
 type ExampleTests = [
-  Expect<Equal<typeof example.value, { name: string }>>,
+  Expect<Equal<typeof notUndefined.value, { name: string }>>,
   Expect<
     Equal<
-      typeof example.set,
+      typeof notUndefined.set,
       React.Dispatch<React.SetStateAction<{ name: string }>>
     >
   >,
 ];
 
-const num = useStateAsObject<number>();
+/**
+ * If you don't pass a value, it should be undefined
+ */
+const hasUndefined = useStateAsObject<number>();
 
 type NumTests = [
-  Expect<Equal<typeof num.value, number | undefined>>,
+  Expect<Equal<typeof hasUndefined.value, number | undefined>>,
   Expect<
     Equal<
-      typeof num.set,
+      typeof hasUndefined.set,
       React.Dispatch<React.SetStateAction<number | undefined>>
     >
   >,

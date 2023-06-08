@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
 
-export type Result<T> = [
-  "loading" | "success" | "error",
-  T | Error | undefined,
-];
+/**
+ * A discriminated tuple!
+ *
+ * The really cool thing about this is that TypeScript can infer the type
+ * even after it's been destructured.
+ */
+export type Result<T> =
+  | ["loading", undefined]
+  | ["error", Error]
+  | ["success", T];
 
 export const useData = <T,>(url: string): Result<T> => {
   const [result, setResult] = useState<Result<T>>(["loading", undefined]);

@@ -1,19 +1,26 @@
+import { appendVideoToDomAndPlay, fetchVideo } from "fake-external-lib";
 import { useEffect, useState } from "react";
 
+/**
+ * Here, we're doing the same trick as before - using a state
+ * variable to track the status of the video loading.
+ *
+ * But this time, we're storing it an object, with an extra
+ * property for the error.
+ *
+ * This could be improved - we should only be allowed to specify
+ * the error property when the status is "error".
+ *
+ * 1. Change the State interface so that the error property is only
+ * allowed when the status is "error".
+ */
+
+type Status = "loading" | "loaded" | "error";
+
 interface State {
-  status: "loading" | "loaded" | "error";
+  status: Status;
   error?: Error;
 }
-
-const fetchVideo = (src: string) => {
-  return fetch(src).then((response) => response.blob());
-};
-
-const appendVideoToDomAndPlay = (blob: Blob) => {
-  const video = document.createElement("video");
-  video.src = URL.createObjectURL(blob);
-  video.play();
-};
 
 export const useLoadAsyncVideo = (src: string) => {
   const [state, setState] = useState<State>({

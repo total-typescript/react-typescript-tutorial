@@ -1,10 +1,25 @@
 import { useEffect, useState } from "react";
 
-export type Result<T> =
-  | ["loading", undefined]
-  | ["error", Error]
-  | ["success", T];
+export type Result<T> = [
+  "loading" | "success" | "error",
+  T | Error | undefined,
+];
 
+/**
+ * Let's look at one more example of discriminated unions. This time, we're
+ * going to use them to make the tuple return type of a hook smarter.
+ *
+ * 1. Change the Result type so that the second element is inferred
+ * from narrowing the first.
+ *
+ * const [status, value] = useData<{ title: string }>(
+ *   "https://jsonplaceholder.typicode.com/todos/1",
+ * );
+ *
+ * When status is 'loading', value should be undefined.
+ * When status is 'error', value should be an Error.
+ * When status is 'success', value should be T.
+ */
 export const useData = <T,>(url: string): Result<T> => {
   const [result, setResult] = useState<Result<T>>(["loading", undefined]);
 

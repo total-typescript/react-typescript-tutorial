@@ -1,3 +1,4 @@
+import { appendVideoToDomAndPlay, fetchVideo } from "fake-external-lib";
 import { useEffect, useState } from "react";
 
 type State =
@@ -11,16 +12,6 @@ type State =
       status: "error";
       error: Error;
     };
-
-const fetchVideo = (src: string) => {
-  return fetch(src).then((response) => response.blob());
-};
-
-const appendVideoToDomAndPlay = (blob: Blob) => {
-  const video = document.createElement("video");
-  video.src = URL.createObjectURL(blob);
-  video.play();
-};
 
 export const useLoadAsyncVideo = (src: string) => {
   const [state, setState] = useState<State>({
