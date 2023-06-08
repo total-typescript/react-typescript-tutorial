@@ -1,15 +1,18 @@
 import { lazy, Suspense, useMemo } from "react";
 
-type Props<C extends React.FC<any>> = React.ComponentProps<C> & {
+type Props<C extends React.ComponentType<any>> = React.ComponentProps<C> & {
   loader: () => Promise<{ default: C }>;
 };
 
-function LazyLoad<C extends React.FC<any>>({ loader, ...props }: Props<C>) {
+function LazyLoad<C extends React.ComponentType<any>>({
+  loader,
+  ...props
+}: Props<C>) {
   const LazyComponent = useMemo(() => lazy(loader), [loader]);
 
   return (
     <Suspense fallback={"Loading..."}>
-      <LazyComponent {...(props as any)} />
+      <LazyComponent {...props} />
     </Suspense>
   );
 }

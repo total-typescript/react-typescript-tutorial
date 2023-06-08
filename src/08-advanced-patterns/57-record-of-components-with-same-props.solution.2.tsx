@@ -16,7 +16,7 @@ const COMPONENTS = {
   password: (props) => {
     return <input {...props} type="password" />;
   },
-} satisfies Record<string, React.FC<InputProps>>;
+} satisfies Record<string, React.ComponentType<InputProps>>;
 
 /**
  * Then, we can derive the type of input from the

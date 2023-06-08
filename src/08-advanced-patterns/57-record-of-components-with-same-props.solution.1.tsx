@@ -8,7 +8,7 @@ type Input = "text" | "number" | "password";
  * We can do it by typing Input and making COMPONENTS
  * restricted to only those inputs.
  */
-const COMPONENTS: Record<Input, React.FC<InputProps>> = {
+const COMPONENTS: Record<Input, React.ComponentType<InputProps>> = {
   text: (props) => {
     return <input {...props} type="text" />;
   },

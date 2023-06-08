@@ -11,8 +11,8 @@ type Props = {
  * But it's not typed correctly, and it's not generic enough.
  * Fix the typing errors, and make it generic enough to support any component.
  *
- * Hint - React.ComponentProps will come in handy! The solution also includes
- * one 'as any'.
+ * Hint - React.ComponentProps will come in handy - as will a helper called
+ * React.ComponentType.
  */
 function LazyLoad({ loader, ...props }: Props) {
   const LazyComponent = useMemo(() => lazy(loader), [loader]);
