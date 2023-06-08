@@ -1,27 +1,34 @@
 import { Equal, Expect } from "../helpers/type-utils";
 
-interface ButtonGroupProps<TValue extends string> {
-  buttons: {
-    value: TValue;
-    label: string;
-  }[];
-  onClick: (value: TValue) => void;
+interface ButtonGroupProps<TButtons extends string[]> {
+  buttons: TButtons;
+  onClick: (value: TButtons[number]) => void;
 }
 
-const ButtonGroup = <TValue extends string>(
-  props: ButtonGroupProps<TValue>,
+/**
+ * Here, we've changed the type of the `buttons` prop to be an array of strings.
+ * But the inference has broken in the ButtonGroup component below!
+ *
+ * See if you can find a way to fix it. A 'const' annotation may help:
+ *
+ * https://www.totaltypescript.com/const-type-parameters
+ *
+ * OR you might be able to fix it by changing the type of the type argument.
+ */
+const ButtonGroup = <TButtons extends string[]>(
+  props: ButtonGroupProps<TButtons>,
 ) => {
   return (
     <div>
       {props.buttons.map((button) => {
         return (
           <button
-            key={button.value}
+            key={button}
             onClick={() => {
-              props.onClick(button.value);
+              props.onClick(button);
             }}
           >
-            {button.label}
+            {button}
           </button>
         );
       })}
@@ -32,17 +39,12 @@ const ButtonGroup = <TValue extends string>(
 <>
   <ButtonGroup
     onClick={(value) => {
+      /**
+       * Instead of inferring the type of `value` to be "add" | "delete", it's
+       * now inferred to be `string`.
+       */
       type test = Expect<Equal<typeof value, "add" | "delete">>;
     }}
-    buttons={[
-      {
-        value: "add",
-        label: "Add",
-      },
-      {
-        value: "delete",
-        label: "Delete",
-      },
-    ]}
+    buttons={["add", "delete"]}
   ></ButtonGroup>
 </>;

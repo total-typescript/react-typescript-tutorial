@@ -1,11 +1,17 @@
 import { ReactNode } from "react";
+import { Equal, Expect } from "../helpers/type-utils";
 
 interface TableProps {
   rows: any[];
-  key: string;
   renderRow: (row: any) => ReactNode;
 }
 
+/**
+ * 1. Here, we have a table component. It takes an array of data and a function
+ * to render each row. The problem is that the type of the data is not
+ * generic. It's just `any`. We want to make it generic so that the type of
+ * the data is inferred from the `rows` prop.
+ */
 export const Table = (props: TableProps) => {
   return (
     <table>
@@ -28,22 +34,11 @@ const data = [
 export const Parent = () => {
   return (
     <div>
+      <Table rows={data} renderRow={(row) => <td>{row.name}</td>} />
       <Table
         rows={data}
-        key="id"
-        renderRow={(row) => <td>{row.name}</td>}
-      ></Table>
-      <Table
-        rows={data}
-        // @ts-expect-error
-        key="doesNotExist"
-        renderRow={(row) => <td>{row.name}</td>}
-      ></Table>
-
-      <Table
-        rows={data}
-        key="id"
         renderRow={(row) => {
+          type test = Expect<Equal<typeof row, { id: number; name: string }>>;
           return (
             <td>
               {

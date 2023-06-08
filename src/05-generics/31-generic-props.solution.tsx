@@ -1,11 +1,16 @@
 import { ReactNode } from "react";
+import { Equal, Expect } from "../helpers/type-utils";
 
 interface TableProps<T> {
   rows: T[];
-  key: keyof T;
   renderRow: (row: T) => ReactNode;
 }
 
+/**
+ * The solution is to add a type argument to the function, then
+ * use that type argument in the type of the `rows` prop and the
+ * `renderRow` function.
+ */
 export const Table = <T,>(props: TableProps<T>) => {
   return (
     <table>
@@ -28,22 +33,11 @@ const data = [
 export const Parent = () => {
   return (
     <div>
+      <Table rows={data} renderRow={(row) => <td>{row.name}</td>} />
       <Table
         rows={data}
-        key="id"
-        renderRow={(row) => <td>{row.name}</td>}
-      ></Table>
-      <Table
-        rows={data}
-        // @ts-expect-error
-        key="doesNotExist"
-        renderRow={(row) => <td>{row.name}</td>}
-      ></Table>
-
-      <Table
-        rows={data}
-        key="id"
         renderRow={(row) => {
+          type test = Expect<Equal<typeof row, { id: number; name: string }>>;
           return (
             <td>
               {

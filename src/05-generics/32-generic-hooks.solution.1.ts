@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
+/**
+ * 1. Take a look at each solution, noting the differences between each.
+ * With some, you might need to do some 'spot the diference' to see
+ * what's changed.
+ *
+ * 2. Which solution do you think is best? Why?
+ */
 export const useStateAsObject = <T>(initial: T) => {
   const [value, set] = useState(initial);
 
