@@ -6,12 +6,31 @@ type Props<T> = {
   renderRow: (item: T) => React.ReactNode;
 };
 
+/**
+ * Try uncommenting the following code. You'll see that the type of the `row`
+ * prop is inferred to be `string`.
+ *
+ * This suggestion is from Stefan Baumgartner:
+ *
+ * https://fettblog.eu/typescript-react-generic-forward-refs/#option-3%3A-augment-forwardref
+ */
+
 // declare module "react" {
 //   function forwardRef<T, P = {}>(
-//     render: (props: P, ref: React.Ref<T>) => React.ReactElement | null,
-//   ): (props: P & React.RefAttributes<T>) => React.ReactElement | null;
+//     render: (props: P, ref: React.Ref<T>) => React.ReactNode | null,
+//   ): (props: P & React.RefAttributes<T>) => React.ReactNode | null;
 // }
 
+/**
+ * By ditching defaultProps and propTypes on the type passed ro render,
+ * we can make use of something called 'higher order function type
+ * inference':
+ *
+ * https://github.com/microsoft/TypeScript/pull/30215
+ *
+ * By doing it this way, we preserve the generic context of the function
+ * being passed in.
+ */
 export const Table = <T,>(props: Props<T>, ref: ForwardedRef<any>) => {
   return null;
 };
