@@ -156,6 +156,6 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.3",
     "react-select": "^5.7.3",
-    "zod": "^3.17.10"
+    "zod": "^3.21.4"
   }
 }
