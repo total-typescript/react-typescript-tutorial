@@ -1,6 +1,19 @@
 import React from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
+/**
+ * Let's take a look at Context in React. Here, we're creating
+ * an abstraction that lets us create a context without having
+ * to worry about the context value being null.
+ *
+ * As you can see, it exposes a special useContext hook and
+ * a Provider component that we can use to wrap our application.
+ *
+ * But currently, it's not inferring any type information from our
+ * createRequiredContext function.
+ *
+ * 1. See if you can fix it!
+ */
 const createRequiredContext = () => {
   const context = React.createContext(null);
 

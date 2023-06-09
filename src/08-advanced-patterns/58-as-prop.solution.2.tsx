@@ -1,4 +1,4 @@
-export const Component = <TAs extends keyof JSX.IntrinsicElements>(
+export const Wrapper = <TAs extends keyof JSX.IntrinsicElements>(
   props: {
     as: TAs;
   } & JSX.IntrinsicElements[TAs],
@@ -8,12 +8,12 @@ export const Component = <TAs extends keyof JSX.IntrinsicElements>(
   return <Comp {...(props as any)}></Comp>;
 };
 
-const example1 = <Component as="a" href="awdawd"></Component>;
+const example1 = <Wrapper as="a" href="awdawd"></Wrapper>;
 
 const example2 = (
-  <Component
+  <Wrapper
     as="div"
     // @ts-expect-error: Property 'href' does not exist
     href="awdawd"
-  ></Component>
+  ></Wrapper>
 );
