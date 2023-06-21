@@ -13,9 +13,31 @@ type ModalProps =
  */
 export const Modal = (props: ModalProps) => {
   if (props.variant === "no-title") {
-    return <div>No title</div>;
+    return (
+      <div>
+        <span>No title</span>
+        <button
+          style={{
+            backgroundColor: props.buttonColor,
+          }}
+        >
+          Click me!
+        </button>
+      </div>
+    );
   } else {
-    return <div>Title: {props.title}</div>;
+    return (
+      <div>
+        <span>Title: {props.title}</span>
+        <button
+          style={{
+            backgroundColor: props.buttonColor,
+          }}
+        >
+          Click me!
+        </button>
+      </div>
+    );
   }
 };
 
