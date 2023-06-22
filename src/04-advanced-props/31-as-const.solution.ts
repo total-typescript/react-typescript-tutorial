@@ -6,10 +6,12 @@ const BACKEND_TO_FRONTEND_STATUS_MAP = {
   2: "error",
 } as const;
 
-type BackendStatus = keyof typeof BACKEND_TO_FRONTEND_STATUS_MAP;
-type FrontendStatus = (typeof BACKEND_TO_FRONTEND_STATUS_MAP)[BackendStatus];
+type BackendStatusMap = typeof BACKEND_TO_FRONTEND_STATUS_MAP;
+
+type BackendStatus = keyof BackendStatusMap;
+type FrontendStatus = BackendStatusMap[BackendStatus];
 
 type test = [
   Expect<Equal<BackendStatus, 0 | 1 | 2>>,
-  Expect<Equal<FrontendStatus, "pending" | "success" | "error">>,
+  Expect<Equal<FrontendStatus, "pending" | "success" | "error">>
 ];
