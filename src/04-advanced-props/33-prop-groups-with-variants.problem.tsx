@@ -4,14 +4,20 @@ const buttonPropsMap = {
   reset: {
     className: "bg-blue-500 text-white",
     type: "reset",
+    // @ts-expect-error
+    illegalProperty: "whatever",
   },
   submit: {
     className: "bg-gray-200 text-black",
     type: "submit",
+    // @ts-expect-error
+    illegalProperty: "whatever",
   },
   next: {
     className: "bg-green-500 text-white",
     type: "button",
+    // @ts-expect-error
+    illegalProperty: "whatever",
   },
 };
 
