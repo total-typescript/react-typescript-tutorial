@@ -6,7 +6,7 @@ const buttonProps = {
   // This should be erroring! Why isn't it?
   // @ts-expect-error
   illegalProperty: "I AM ILLEGAL",
-};
+} satisfies ComponentProps<"button">;
 
 <>
   <button {...buttonProps}>Click Me!</button>
