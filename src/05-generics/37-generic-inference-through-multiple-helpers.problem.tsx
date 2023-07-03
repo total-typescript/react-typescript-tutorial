@@ -1,10 +1,12 @@
 import { Equal, Expect } from "../helpers/type-utils";
 
+interface Button {
+  value: string;
+  label: string;
+}
+
 interface ButtonGroupProps {
-  buttons: {
-    value: string;
-    label: string;
-  }[];
+  buttons: Button[];
   onClick: (value: string) => void;
 }
 
