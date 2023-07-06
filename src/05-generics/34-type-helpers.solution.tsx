@@ -4,7 +4,14 @@ type ButtonVariant = "primary" | "secondary" | "tertiary";
 type LooseIcon = LooseAutocomplete<Icon>;
 type LooseButtonVariant = LooseAutocomplete<ButtonVariant>;
 
-export type LooseAutocomplete<T> = T | (string & {});
+/**
+ * Comment explaining what LooseAutocomplete does
+ */
+type LooseAutocomplete<T> = T | (string & {});
+
+const looseAutocomplete = (t: any) => {
+  return "hello";
+};
 
 export const icons: LooseIcon[] = [
   "home",
