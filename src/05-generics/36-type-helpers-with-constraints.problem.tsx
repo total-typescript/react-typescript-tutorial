@@ -1,10 +1,8 @@
 import { Equal, Expect } from "../helpers/type-utils";
 
-type AllOrNothing<T> =
-  | T
-  | {
-      [K in keyof T]?: undefined;
-    };
+type AllOrNothing<T> = T | ToUndefinedObject<T>;
+
+type ToUndefinedObject<T> = Partial<Record<keyof T, undefined>>;
 
 /**
  * There's a problem with our AllOrNothing type. It's letting
@@ -21,5 +19,5 @@ type tests = [
   AllOrNothing<undefined>,
   // @ts-expect-error
   AllOrNothing<string[]>,
-  Expect<Equal<AllOrNothing<{ a: string }>, { a: string } | { a?: undefined }>>,
+  Expect<Equal<AllOrNothing<{ a: string }>, { a: string } | { a?: undefined }>>
 ];

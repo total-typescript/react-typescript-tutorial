@@ -1,16 +1,8 @@
 import { Equal, Expect } from "../helpers/type-utils";
 
-type AllOrNothing<T extends object> =
-  | T
-  | {
-      [K in keyof T]?: undefined;
-    };
+type AllOrNothing<T extends object> = T | ToUndefinedObject<T>;
 
-/**
- * There's a problem with our AllOrNothing type. It's letting
- * us pass ANYTHING as T. We want to constrain it so that it
- * only works with objects.
- */
+type ToUndefinedObject<T extends object> = Partial<Record<keyof T, undefined>>;
 
 type tests = [
   // @ts-expect-error
@@ -19,7 +11,7 @@ type tests = [
   AllOrNothing<number>,
   // @ts-expect-error
   AllOrNothing<undefined>,
-  Expect<Equal<AllOrNothing<{ a: string }>, { a: string } | { a?: undefined }>>,
+  Expect<Equal<AllOrNothing<{ a: string }>, { a: string } | { a?: undefined }>>
 ];
 
 // Note that this isn't perfect! Try AllOrNothing<string[]>
