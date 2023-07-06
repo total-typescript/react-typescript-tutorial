@@ -1,10 +1,8 @@
 import { ChangeEventHandler } from "react";
 
-type AllOrNothing<T> =
-  | T
-  | {
-      [K in keyof T]?: undefined;
-    };
+type AllOrNothing<T> = T | ToUndefinedObject<T>;
+
+type ToUndefinedObject<T> = Partial<Record<keyof T, undefined>>;
 
 export type InputProps = AllOrNothing<{
   value: string;
