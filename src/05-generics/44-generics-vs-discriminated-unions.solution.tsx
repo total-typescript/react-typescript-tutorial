@@ -5,19 +5,18 @@
  * are passed in for each variant.
  */
 
-export type ModalProps =
+export type ModalProps = {
+  isOpen: boolean;
+} & (
   | {
-      isOpen: boolean;
-    } & (
-      | {
-          variant: "with-button";
-          buttonLabel: string;
-          onButtonClick: () => void;
-        }
-      | {
-          variant: "without-button";
-        }
-    );
+      variant: "with-button";
+      buttonLabel: string;
+      onButtonClick: () => void;
+    }
+  | {
+      variant: "without-button";
+    }
+);
 
 export const Modal = (props: ModalProps) => {
   // ...
