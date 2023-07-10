@@ -7,12 +7,12 @@ import { useEffect, useState } from "react";
  * even after it's been destructured.
  */
 export type Result<T> =
-  | ["loading", undefined]
-  | ["error", Error]
-  | ["success", T];
+  | ["loading", undefined?]
+  | ["success", T]
+  | ["error", Error];
 
 export const useData = <T,>(url: string): Result<T> => {
-  const [result, setResult] = useState<Result<T>>(["loading", undefined]);
+  const [result, setResult] = useState<Result<T>>(["loading"]);
 
   useEffect(() => {
     fetch(url)
@@ -26,7 +26,7 @@ export const useData = <T,>(url: string): Result<T> => {
 
 const Component = () => {
   const [status, value] = useData<{ title: string }>(
-    "https://jsonplaceholder.typicode.com/todos/1",
+    "https://jsonplaceholder.typicode.com/todos/1"
   );
 
   if (status === "loading") {
