@@ -53,4 +53,8 @@ export const useLoadAsyncVideo = (src: string) => {
 
   // @ts-expect-error
   setState({ status: "loaded", error: new Error("error") });
+
+  if (state.status === "error") {
+    console.error(state.error);
+  }
 };
