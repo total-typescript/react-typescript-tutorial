@@ -3,10 +3,7 @@ import { useEffect, useState } from "react";
 
 type State =
   | {
-      status: "loading";
-    }
-  | {
-      status: "loaded";
+      status: "loading" | "loaded";
     }
   | {
       status: "error";
