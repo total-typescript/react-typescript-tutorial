@@ -144,7 +144,19 @@
     "e-65": "tt-cli run 65",
     "s-65": "tt-cli run 65 --solution",
     "e-66": "tt-cli run 66",
-    "s-66": "tt-cli run 66 --solution"
+    "s-66": "tt-cli run 66 --solution",
+    "e-43": "tt-cli run 43",
+    "s-43": "tt-cli run 43 --solution",
+    "e-67": "tt-cli run 67",
+    "s-67": "tt-cli run 67 --solution",
+    "e-68": "tt-cli run 68",
+    "s-68": "tt-cli run 68 --solution",
+    "e-70": "tt-cli run 70",
+    "s-70": "tt-cli run 70 --solution",
+    "e-71": "tt-cli run 71",
+    "s-71": "tt-cli run 71 --solution",
+    "e-73": "tt-cli run 73",
+    "s-73": "tt-cli run 73 --solution"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.29.12",
