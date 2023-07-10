@@ -30,15 +30,28 @@ export const useLoadAsyncVideo = (src: string) => {
   useEffect(() => {
     setState({ status: "loading" });
 
+    let cancelled = false;
+
     fetchVideo(src)
       .then((blob) => {
+        if (cancelled) {
+          return;
+        }
+
         appendVideoToDomAndPlay(blob);
 
         setState({ status: "loaded" });
       })
       .catch((error) => {
+        if (cancelled) {
+          return;
+        }
         setState({ status: "error", error });
       });
+
+    return () => {
+      cancelled = true;
+    };
   }, [src]);
 
   // @ts-expect-error
