@@ -7,7 +7,7 @@ import { Equal, Expect } from "../helpers/type-utils";
 
 function maybeReturnsString(defaultString: string): string;
 function maybeReturnsString(
-  defaultString?: string | undefined,
+  defaultString?: string | undefined
 ): string | undefined;
 function maybeReturnsString(defaultString?: string) {
   // If you pass a string, it always returns a string
@@ -20,9 +20,9 @@ function maybeReturnsString(defaultString?: string) {
 }
 
 const example1 = maybeReturnsString("hello");
-const example2 = maybeReturnsString();
+const example2 = maybeReturnsString(undefined);
 
 type tests = [
   Expect<Equal<typeof example1, string>>,
-  Expect<Equal<typeof example2, string | undefined>>,
+  Expect<Equal<typeof example2, string | undefined>>
 ];

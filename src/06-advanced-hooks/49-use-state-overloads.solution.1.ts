@@ -17,5 +17,5 @@ const example2 = maybeReturnsString();
 
 type tests = [
   Expect<Equal<typeof example1, string>>,
-  Expect<Equal<typeof example2, string | undefined>>,
+  Expect<Equal<typeof example2, string | undefined>>
 ];
