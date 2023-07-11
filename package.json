@@ -156,7 +156,13 @@
     "e-71": "tt-cli run 71",
     "s-71": "tt-cli run 71 --solution",
     "e-73": "tt-cli run 73",
-    "s-73": "tt-cli run 73 --solution"
+    "s-73": "tt-cli run 73 --solution",
+    "e-69": "tt-cli run 69",
+    "s-69": "tt-cli run 69 --solution",
+    "e-74": "tt-cli run 74",
+    "s-74": "tt-cli run 74 --solution",
+    "e-76": "tt-cli run 76",
+    "s-76": "tt-cli run 76 --solution"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.29.12",
