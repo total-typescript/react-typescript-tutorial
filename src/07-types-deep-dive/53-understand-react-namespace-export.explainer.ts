@@ -3,6 +3,7 @@
  */
 
 // 1. What is the React namespace?
+// 1a. Why can it be accessed globally as a type?
 type Example = React.ReactNode;
 //             ^?
 
@@ -16,3 +17,5 @@ type Example = React.ReactNode;
  */
 const element = React.createElement("div");
 //              ^?
+
+export {};
