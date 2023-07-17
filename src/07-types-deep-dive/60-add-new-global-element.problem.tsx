@@ -7,7 +7,7 @@
  * which takes a required `id` attribute.
  *
  * Hint - you'll need to declaration merge with an existing
- * interface in the React namespace.
+ * interface in the JSX namespace.
  */
 
 <>
