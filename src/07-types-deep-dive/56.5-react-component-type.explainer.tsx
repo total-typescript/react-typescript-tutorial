@@ -1,10 +1,4 @@
-type types = [
-  React.ElementType,
-  React.ComponentType,
-  React.JSXElementConstructor<{
-    prop1: string;
-  }>
-];
+type types = [React.ElementType, React.ComponentType];
 
 /**
  * ElementType
@@ -20,13 +14,13 @@ export type Example = React.ElementType<{
 }>;
 
 /**
- * JSXElementConstructor
+ * ComponentType
  */
-const Example1 = (props: { prop1: string }) => {
+const FuncComponent = (props: { prop1: string }) => {
   return null;
 };
 
-class Example2 extends React.Component<{
+class ClassComponent extends React.Component<{
   prop1: string;
 }> {
   render(): React.ReactNode {
@@ -35,13 +29,7 @@ class Example2 extends React.Component<{
   }
 }
 
-const tests: Array<
-  React.JSXElementConstructor<{
-    prop1: string;
-  }>
-> = [Example1, Example2];
-
 const tests2: Array<React.ComponentType<{ prop1: string }>> = [
-  Example1,
-  Example2,
+  FuncComponent,
+  ClassComponent,
 ];
