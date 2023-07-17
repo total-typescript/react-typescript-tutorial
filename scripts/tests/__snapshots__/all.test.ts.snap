@@ -1015,7 +1015,13 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
     {
       "assertionResults": [],
       "message": "React is not defined",
-      "name": "/src/07-types-deep-dive/53-understand-react-namespace-export.explainer.ts",
+      "name": "/src/07-types-deep-dive/53-understand-react-namespace-export.problem.ts",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "React is not defined",
+      "name": "/src/07-types-deep-dive/53-understand-react-namespace-export.solution.ts",
       "status": "passed",
     },
     {
