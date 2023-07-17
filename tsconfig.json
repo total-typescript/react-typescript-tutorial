@@ -6,6 +6,7 @@
     "moduleResolution": "node",
     "noEmit": true,
     "isolatedModules": true,
+    "moduleDetection": "force",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
