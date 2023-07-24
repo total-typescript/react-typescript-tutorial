@@ -6,6 +6,13 @@ import {
 } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
+/**
+ * FYI - this solution took me the best part of a whole day to find,
+ * and the help of several TS experts in the community.
+ *
+ * So, don't feel bad if you don't find it at all.
+ */
+
 export const UnwrappedLink = <T extends ElementType>(
   props: {
     as?: T;
