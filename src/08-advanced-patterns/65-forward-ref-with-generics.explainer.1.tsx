@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef } from "react";
+import { ForwardedRef, forwardRef, useRef } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
 type Props<T> = {
@@ -31,20 +31,36 @@ type Props<T> = {
  * By doing it this way, we preserve the generic context of the function
  * being passed in.
  */
-export const Table = <T,>(props: Props<T>, ref: ForwardedRef<any>) => {
-  return null;
+export const Table = <T,>(
+  props: Props<T>,
+  ref: ForwardedRef<HTMLTableElement>,
+) => {
+  return <table ref={ref} />;
 };
 
 const ForwardReffedTable = forwardRef(Table);
 
 const Parent = () => {
+  const tableRef = useRef<HTMLTableElement>(null);
+  const wrongRef = useRef<HTMLDivElement>(null);
   return (
-    <ForwardReffedTable
-      data={["123"]}
-      renderRow={(row) => {
-        type test = Expect<Equal<typeof row, string>>;
-        return <div>123</div>;
-      }}
-    ></ForwardReffedTable>
+    <>
+      <ForwardReffedTable
+        ref={tableRef}
+        data={["123"]}
+        renderRow={(row) => {
+          type test = Expect<Equal<typeof row, string>>;
+          return <div>123</div>;
+        }}
+      />
+      <ForwardReffedTable
+        // @ts-expect-error
+        ref={wrongRef}
+        data={["123"]}
+        renderRow={(row) => {
+          return <div>123</div>;
+        }}
+      />
+    </>
   );
 };
