@@ -1,23 +1,30 @@
-import {
-  ComponentPropsWithoutRef,
-  JSXElementConstructor,
-  forwardRef,
-  useRef,
-} from "react";
+import { ComponentProps, ElementType, forwardRef, useRef } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
-function UnwrappedLink<
-  T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>,
->(
+// Added fixedForwardRef from a previous exercise
+
+type FixedForwardRef = <T, P = {}>(
+  render: (props: P, ref: React.Ref<T>) => React.ReactNode,
+) => (props: P & React.RefAttributes<T>) => React.ReactNode;
+
+const fixedForwardRef = forwardRef as FixedForwardRef;
+
+// Added a DistributiveOmit type
+
+type DistributiveOmit<T, TOmitted extends PropertyKey> = T extends any
+  ? Omit<T, TOmitted>
+  : never;
+
+function UnwrappedLink<T extends ElementType>(
   props: {
     as?: T;
-  } & ComponentPropsWithoutRef<T>,
+  } & DistributiveOmit<ComponentProps<ElementType extends T ? "a" : T>, "as">,
 ) {
   const { as: Comp = "a", ...rest } = props;
   return <Comp {...rest}></Comp>;
 }
 
-const Link = forwardRef(UnwrappedLink);
+const Link = fixedForwardRef(UnwrappedLink);
 
 /**
  * Should work without specifying 'as'

@@ -6,8 +6,8 @@ export const Link = <T extends ElementType>(
     as: T;
   } & ComponentPropsWithoutRef<T>,
 ) => {
-  const { as: Comp, ...rest } = props;
-  return <Comp {...rest}></Comp>;
+  const Comp = props.as;
+  return <Comp {...(props as any)}></Comp>;
 };
 
 /**
