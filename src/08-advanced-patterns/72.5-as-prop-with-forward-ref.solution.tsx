@@ -1,12 +1,4 @@
-import {
-  ComponentProps,
-  ComponentPropsWithRef,
-  ComponentPropsWithoutRef,
-  ElementType,
-  JSXElementConstructor,
-  forwardRef,
-  useRef,
-} from "react";
+import { ComponentPropsWithRef, ElementType, forwardRef, useRef } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
 type FixedForwardRef = <T, P = {}>(
@@ -15,16 +7,11 @@ type FixedForwardRef = <T, P = {}>(
 
 const fixedForwardRef = forwardRef as FixedForwardRef;
 
-type Constraint = keyof JSX.IntrinsicElements | JSXElementConstructor<any>;
-
-type Props<
-  T extends Constraint,
-  P = ComponentProps<Constraint extends T ? "a" : T>,
-> = P;
-
-type Example = Props<"button">;
-
-function UnwrappedLink<T extends Constraint>(props: { as?: T } & Props<T>) {
+function UnwrappedLink<T extends ElementType>(
+  props: {
+    as?: T;
+  } & Omit<ComponentPropsWithRef<ElementType extends T ? "a" : T>, "as">,
+) {
   const { as: Comp = "a", ...rest } = props;
   return <Comp {...rest}></Comp>;
 }
@@ -38,9 +25,14 @@ const Link = fixedForwardRef(UnwrappedLink);
   }}
 ></Link>;
 
-const Custom = (props: { thisIsRequired: boolean }) => {
-  return null;
-};
+const Custom = forwardRef(
+  (
+    props: { thisIsRequired: boolean },
+    ref: React.ForwardedRef<HTMLAnchorElement>,
+  ) => {
+    return <a ref={ref} />;
+  },
+);
 
 <Link as={Custom} thisIsRequired />;
 
@@ -62,14 +54,26 @@ Link({
 });
 
 Link({
-  as: Custom,
-  thisIsRequired: true,
+  // @ts-expect-error
+  ref: wrongRef,
 });
 
 Link({
+  as: Custom,
+  thisIsRequired: true,
+  ref: ref,
+});
+
+Link({
+  as: Custom,
+  thisIsRequired: true,
   // @ts-expect-error
   ref: wrongRef,
 });
 
 // @ts-expect-error: Property 'href' does not exist
 <Link as="div" href="awdawd"></Link>;
+
+Link({
+  as: "div",
+});

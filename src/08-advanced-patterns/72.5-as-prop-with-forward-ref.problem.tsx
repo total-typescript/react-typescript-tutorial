@@ -1,6 +1,5 @@
 import {
   ComponentPropsWithoutRef,
-  ElementType,
   JSXElementConstructor,
   forwardRef,
 } from "react";
