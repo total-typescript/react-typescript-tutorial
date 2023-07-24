@@ -211,7 +211,7 @@ src/08-advanced-patterns/71-as-prop-with-custom-components.problem.tsx(21,20): e
   Property 'href' does not exist on type 'IntrinsicAttributes & { as: unknown; }'.
 src/08-advanced-patterns/72-as-prop-with-default.problem.tsx(10,11): error TS2322: Type 'Omit<{ as: T; } & ComponentPropsWithoutRef<T>, \\"as\\">' is not assignable to type 'IntrinsicAttributes & LibraryManagedAttributes<T, any>'.
   Type 'Omit<{ as: T; } & ComponentPropsWithoutRef<T>, \\"as\\">' is not assignable to type 'LibraryManagedAttributes<T, any>'.
-src/08-advanced-patterns/72-as-prop-with-default.problem.tsx(14,2): error TS2741: Property 'as' is missing in type '{ href: string; }' but required in type '{ as: ElementType<any>; }'.
+src/08-advanced-patterns/72-as-prop-with-default.problem.tsx(14,2): error TS2741: Property 'as' is missing in type '{ href: string; }' but required in type '{ as: ElementType; }'.
 src/09-external-libraries/74-react-hook-form-wrapper.problem.tsx(29,3): error TS2578: Unused '@ts-expect-error' directive.
 src/09-external-libraries/74-react-hook-form-wrapper.problem.tsx(42,5): error TS2344: Type 'boolean' does not satisfy the constraint 'true'.
 src/09-external-libraries/75-react-select.problem.tsx(10,24): error TS7006: Parameter 'props' implicitly has an 'any' type.

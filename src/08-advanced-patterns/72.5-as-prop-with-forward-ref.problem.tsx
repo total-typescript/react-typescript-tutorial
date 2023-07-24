@@ -2,7 +2,7 @@ import { ComponentPropsWithoutRef, ElementType, forwardRef } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
 export const Link = forwardRef(
-  <T extends ElementType<any> = "a">(
+  <T extends ElementType = "a">(
     props: {
       as?: T;
     } & ComponentPropsWithoutRef<T>,

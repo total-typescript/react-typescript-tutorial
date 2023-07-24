@@ -1,7 +1,7 @@
 import React, { ComponentPropsWithoutRef, ElementType } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
-export const Wrapper = <T extends ElementType<any>>(
+export const Wrapper = <T extends ElementType>(
   props: {
     as: T;
   } & ComponentPropsWithoutRef<T>,
