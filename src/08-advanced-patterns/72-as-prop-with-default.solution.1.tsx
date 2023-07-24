@@ -13,26 +13,79 @@ export const Link = <T extends ElementType = "a">(
   return <Comp {...rest}></Comp>;
 };
 
-<Link href="/"></Link>;
+/**
+ * Should work without specifying 'as'
+ */
 
-const Custom = (props: { thisIsRequired: boolean }) => {
-  return null;
+const Example1 = () => {
+  return (
+    <>
+      <Link
+        // @ts-expect-error doesNotExist is not a valid prop
+        doesNotExist
+      ></Link>
+
+      <Link
+        // e should be inferred correctly
+        onClick={(e) => {
+          type test = Expect<
+            Equal<typeof e, React.MouseEvent<HTMLAnchorElement>>
+          >;
+        }}
+      ></Link>
+    </>
+  );
 };
 
-<Link as={Custom} thisIsRequired />;
+/**
+ * Should work specifying a 'button'
+ */
 
-// @ts-expect-error Property 'thisIsRequired' is missing
-<Link as={Custom} />;
+const Example2 = () => {
+  return (
+    <>
+      <Link
+        as="button"
+        // @ts-expect-error doesNotExist is not a valid prop
+        doesNotExist
+      ></Link>
 
-<Link
-  as="button"
-  onClick={(e) => {
-    type test = Expect<Equal<typeof e, React.MouseEvent<HTMLButtonElement>>>;
-  }}
-></Link>;
+      <Link
+        as="button"
+        // e should be inferred correctly
+        onClick={(e) => {
+          type test = Expect<
+            Equal<typeof e, React.MouseEvent<HTMLButtonElement>>
+          >;
+        }}
+      ></Link>
+    </>
+  );
+};
 
-<Link
-  as="div"
-  // @ts-expect-error: Property 'href' does not exist
-  href="awdawd"
-></Link>;
+/**
+ * Should work with Custom components!
+ */
+
+const Custom = (
+  props: { thisIsRequired: boolean },
+  ref: React.ForwardedRef<HTMLAnchorElement>,
+) => {
+  return <a ref={ref} />;
+};
+
+const Example3 = () => {
+  return (
+    <>
+      <Link as={Custom} thisIsRequired />
+      <Link
+        as={Custom}
+        // @ts-expect-error incorrectProp should not be allowed
+        incorrectProp
+      />
+
+      {/* @ts-expect-error thisIsRequired is not being passed */}
+      <Link as={Custom}></Link>
+    </>
+  );
+};

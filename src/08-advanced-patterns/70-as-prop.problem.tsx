@@ -22,19 +22,59 @@
  * - Indexed access types
  */
 
+import { Equal, Expect } from "../helpers/type-utils";
+
 export const Wrapper = (props: any) => {
   const Comp = props.as;
   return <Comp {...(props as any)}></Comp>;
 };
 
-// Should work, and you should get autocomplete on the
-// props for the 'a' tag
-const example1 = <Wrapper as="a" href="awdawd"></Wrapper>;
+/**
+ * Should work specifying a 'button'
+ */
 
-const example2 = (
-  <Wrapper
-    as="div"
-    // @ts-expect-error: Property 'href' does not exist
-    href="awdawd"
-  ></Wrapper>
-);
+const Example1 = () => {
+  return (
+    <>
+      <Wrapper
+        as="button"
+        // @ts-expect-error doesNotExist is not a valid prop
+        doesNotExist
+      ></Wrapper>
+
+      <Wrapper
+        as="button"
+        // e should be inferred correctly
+        onClick={(e) => {
+          type test = Expect<
+            Equal<typeof e, React.MouseEvent<HTMLButtonElement>>
+          >;
+        }}
+      ></Wrapper>
+    </>
+  );
+};
+
+/**
+ * Should work specifying a 'div'
+ */
+
+const Example2 = () => {
+  return (
+    <>
+      <Wrapper
+        as="div"
+        // @ts-expect-error doesNotExist is not a valid prop
+        doesNotExist
+      ></Wrapper>
+
+      <Wrapper
+        as="div"
+        // e should be inferred correctly
+        onClick={(e) => {
+          type test = Expect<Equal<typeof e, React.MouseEvent<HTMLDivElement>>>;
+        }}
+      ></Wrapper>
+    </>
+  );
+};

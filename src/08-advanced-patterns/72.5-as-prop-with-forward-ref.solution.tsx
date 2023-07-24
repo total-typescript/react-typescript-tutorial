@@ -11,16 +11,10 @@ type DistributiveOmit<T, TOmitted extends PropertyKey> = T extends any
   ? Omit<T, TOmitted>
   : never;
 
-function UnwrappedLink<
-  T extends ElementType,
-  Props extends DistributiveOmit<
-    ComponentProps<ElementType extends T ? "a" : T>,
-    "as"
-  >,
->(
+function UnwrappedLink<T extends ElementType>(
   props: {
     as?: T;
-  } & Props,
+  } & DistributiveOmit<ComponentProps<ElementType extends T ? "a" : T>, "as">,
 ) {
   const { as: Comp = "a", ...rest } = props;
   return <Comp {...rest}></Comp>;
@@ -28,12 +22,83 @@ function UnwrappedLink<
 
 const Link = fixedForwardRef(UnwrappedLink);
 
-<Link
-  href="/"
-  onClick={(e) => {
-    type test = Expect<Equal<typeof e, React.MouseEvent<HTMLAnchorElement>>>;
-  }}
-></Link>;
+/**
+ * Should work without specifying 'as'
+ */
+
+const Example1 = () => {
+  const ref = useRef<HTMLAnchorElement>(null);
+  const wrongRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <>
+      <Link ref={ref} />
+
+      <Link
+        // @ts-expect-error incorrect ref
+        ref={wrongRef}
+      />
+
+      <Link
+        // @ts-expect-error doesNotExist is not a valid prop
+        doesNotExist
+      ></Link>
+
+      <Link
+        // e should be inferred correctly
+        onClick={(e) => {
+          type test = Expect<
+            Equal<typeof e, React.MouseEvent<HTMLAnchorElement>>
+          >;
+        }}
+      ></Link>
+    </>
+  );
+};
+
+/**
+ * Should work specifying a 'button'
+ */
+
+const Example2 = () => {
+  const ref = useRef<HTMLButtonElement>(null);
+  const wrongRef = useRef<HTMLSpanElement>(null);
+
+  return (
+    <>
+      {/* CHECK ME! Check if autocomplete works on 'as' */}
+      <Link as="button" />
+
+      <Link as="button" ref={ref} />
+
+      <Link
+        as="button"
+        // @ts-expect-error incorrect ref
+        ref={wrongRef}
+      />
+
+      <Link
+        as="button"
+        // @ts-expect-error doesNotExist is not a valid prop
+        doesNotExist
+      ></Link>
+
+      <Link
+        as="button"
+        // e should be inferred correctly
+        onClick={(e) => {
+          type test = Expect<
+            Equal<typeof e, React.MouseEvent<HTMLButtonElement>>
+          >;
+        }}
+      ></Link>
+    </>
+  );
+};
+
+/**
+ * Should work with Custom components!
+ */
 
 const Custom = forwardRef(
   (
@@ -44,46 +109,29 @@ const Custom = forwardRef(
   },
 );
 
-<Link as={Custom} thisIsRequired />;
+const Example3 = () => {
+  const ref = useRef<HTMLAnchorElement>(null);
+  const wrongRef = useRef<HTMLDivElement>(null);
+  return (
+    <>
+      <Link as={Custom} thisIsRequired />
+      <Link
+        as={Custom}
+        // @ts-expect-error incorrectProp should not be allowed
+        incorrectProp
+      />
 
-// @ts-expect-error Property 'thisIsRequired' is missing
-<Link as={Custom} />;
+      {/* @ts-expect-error thisIsRequired is not being passed */}
+      <Link as={Custom}></Link>
 
-<Link
-  as="button"
-  onClick={(e) => {
-    type test = Expect<Equal<typeof e, React.MouseEvent<HTMLButtonElement>>>;
-  }}
-></Link>;
+      <Link as={Custom} ref={ref} thisIsRequired />
 
-const ref = useRef<HTMLAnchorElement>(null);
-const wrongRef = useRef<HTMLDivElement>(null);
-
-Link({
-  ref,
-});
-
-Link({
-  // @ts-expect-error
-  ref: wrongRef,
-});
-
-Link({
-  as: Custom,
-  thisIsRequired: true,
-  ref: ref,
-});
-
-Link({
-  as: Custom,
-  thisIsRequired: true,
-  // @ts-expect-error
-  ref: wrongRef,
-});
-
-// @ts-expect-error: Property 'href' does not exist
-<Link as="div" href="awdawd"></Link>;
-
-Link({
-  as: "div",
-});
+      <Link
+        as={Custom}
+        // @ts-expect-error incorrect ref
+        ref={wrongRef}
+        thisIsRequired
+      />
+    </>
+  );
+};

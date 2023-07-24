@@ -1,46 +1,91 @@
-import { ComponentPropsWithoutRef, ElementType } from "react";
+import { ComponentPropsWithoutRef, ElementType, useRef } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
 /**
- * Function overloads are another solution which work. We're getting
- * closer to extreme verbosity, but it works!
- *
- * Though - the error at the bottom of the file becomes much
- * harder to read.
+ * This NEARLY works, but removes autocomplete for the 'as' prop.
  */
-
-function Link<T extends ElementType>(
-  props: {
-    as: T;
-  } & ComponentPropsWithoutRef<T>,
-): React.ReactNode;
-function Link(props: ComponentPropsWithoutRef<"a">): React.ReactNode;
-function Link<T extends ElementType>(
+export const Link = <T extends ElementType>(
   props: {
     as?: T;
-  } & ComponentPropsWithoutRef<T>,
-) {
+  } & ComponentPropsWithoutRef<ElementType extends T ? "a" : T>,
+) => {
   const { as: Comp = "a", ...rest } = props;
   return <Comp {...rest}></Comp>;
-}
-
-<Link href="/"></Link>;
-
-const Custom = (props: { thisIsRequired: boolean }) => {
-  return null;
 };
 
-<Link as={Custom} thisIsRequired />;
+/**
+ * Should work without specifying 'as'
+ */
 
-// @ts-expect-error Property 'thisIsRequired' is missing
-<Link as={Custom} />;
+const Example1 = () => {
+  return (
+    <>
+      <Link
+        // @ts-expect-error doesNotExist is not a valid prop
+        doesNotExist
+      ></Link>
 
-<Link
-  as="button"
-  onClick={(e) => {
-    type test = Expect<Equal<typeof e, React.MouseEvent<HTMLButtonElement>>>;
-  }}
-></Link>;
+      <Link
+        // e should be inferred correctly
+        onClick={(e) => {
+          type test = Expect<
+            Equal<typeof e, React.MouseEvent<HTMLAnchorElement>>
+          >;
+        }}
+      ></Link>
+    </>
+  );
+};
 
-// @ts-expect-error: Property 'href' does not exist
-<Link as="div" href="awdawd"></Link>;
+/**
+ * Should work specifying a 'button'
+ */
+
+const Example2 = () => {
+  return (
+    <>
+      <Link
+        as="button"
+        // @ts-expect-error doesNotExist is not a valid prop
+        doesNotExist
+      ></Link>
+
+      <Link
+        as="button"
+        // e should be inferred correctly
+        onClick={(e) => {
+          type test = Expect<
+            Equal<typeof e, React.MouseEvent<HTMLButtonElement>>
+          >;
+        }}
+      ></Link>
+    </>
+  );
+};
+
+/**
+ * Should work with Custom components!
+ */
+
+const Custom = (
+  props: { thisIsRequired: boolean },
+  ref: React.ForwardedRef<HTMLAnchorElement>,
+) => {
+  return <a ref={ref} />;
+};
+
+const Example3 = () => {
+  return (
+    <>
+      <Link as={Custom} thisIsRequired />
+      <Link
+        as={Custom}
+        // @ts-expect-error incorrectProp should not be allowed
+        incorrectProp
+      />
+
+      {/* @ts-expect-error thisIsRequired is not being passed */}
+      <Link as={Custom}></Link>
+    </>
+  );
+};
