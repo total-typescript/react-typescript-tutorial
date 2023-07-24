@@ -8,11 +8,7 @@ interface ModalChildProps {
   closeModal: () => void;
 }
 
-const Modal = ({
-  children,
-}: {
-  children: (props: ModalChildProps) => React.ReactNode;
-}) => {
+const Modal = ({ children }: { children: React.FC<ModalChildProps> }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
