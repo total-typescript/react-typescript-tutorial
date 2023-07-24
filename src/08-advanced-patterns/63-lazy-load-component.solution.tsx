@@ -1,10 +1,12 @@
-import { lazy, Suspense, useMemo } from "react";
+import { ComponentProps, ComponentType, lazy, Suspense, useMemo } from "react";
 
-type Props<C extends React.ComponentType<any>> = React.ComponentProps<C> & {
-  loader: () => Promise<{ default: C }>;
-};
+type Props<C extends ComponentType<any>> = {
+  loader: () => Promise<{
+    default: C;
+  }>;
+} & ComponentProps<C>;
 
-function LazyLoad<C extends React.ComponentType<any>>({
+function LazyLoad<C extends ComponentType<any>>({
   loader,
   ...props
 }: Props<C>) {
