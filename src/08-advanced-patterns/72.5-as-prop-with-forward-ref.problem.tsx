@@ -1,16 +1,23 @@
-import { ComponentPropsWithoutRef, ElementType, forwardRef } from "react";
+import {
+  ComponentPropsWithoutRef,
+  ElementType,
+  JSXElementConstructor,
+  forwardRef,
+} from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
-export const Link = forwardRef(
-  <T extends ElementType = "a">(
-    props: {
-      as?: T;
-    } & ComponentPropsWithoutRef<T>,
-  ) => {
-    const { as: Comp = "a", ...rest } = props;
-    return <Comp {...rest}></Comp>;
-  },
-);
+function UnwrappedLink<
+  T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>,
+>(
+  props: {
+    as?: T;
+  } & ComponentPropsWithoutRef<T>,
+) {
+  const { as: Comp = "a", ...rest } = props;
+  return <Comp {...rest}></Comp>;
+}
+
+const Link = forwardRef(UnwrappedLink);
 
 <Link href="/"></Link>;
 
@@ -30,8 +37,5 @@ const Custom = (props: { thisIsRequired: boolean }) => {
   }}
 ></Link>;
 
-<Link
-  as="div"
-  // @ts-expect-error: Property 'href' does not exist
-  href="awdawd"
-></Link>;
+// @ts-expect-error: Property 'href' does not exist
+<Link as="div" href="awdawd"></Link>;

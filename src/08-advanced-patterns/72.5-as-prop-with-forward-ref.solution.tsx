@@ -1,7 +1,9 @@
 import {
   ComponentProps,
+  ComponentPropsWithRef,
   ComponentPropsWithoutRef,
   ElementType,
+  JSXElementConstructor,
   forwardRef,
   useRef,
 } from "react";
@@ -13,23 +15,28 @@ type FixedForwardRef = <T, P = {}>(
 
 const fixedForwardRef = forwardRef as FixedForwardRef;
 
-export const Link = fixedForwardRef(
-  <T extends ElementType = "a">(
-    props: {
-      as?: T;
-    } & ComponentProps<T>,
-  ) => {
-    const { as = "a", ...rest } = props;
-    const Comp = as as any;
-    return <Comp {...rest}></Comp>;
-  },
-);
+type Constraint = keyof JSX.IntrinsicElements | JSXElementConstructor<any>;
 
-const Test = () => {
-  const ref = useRef<HTMLAnchorElement>(null);
+type Props<
+  T extends Constraint,
+  P = ComponentProps<Constraint extends T ? "a" : T>,
+> = P;
 
-  return <Link as="a" href="/" ref={ref}></Link>;
-};
+type Example = Props<"button">;
+
+function UnwrappedLink<T extends Constraint>(props: { as?: T } & Props<T>) {
+  const { as: Comp = "a", ...rest } = props;
+  return <Comp {...rest}></Comp>;
+}
+
+const Link = fixedForwardRef(UnwrappedLink);
+
+<Link
+  href="/"
+  onClick={(e) => {
+    type test = Expect<Equal<typeof e, React.MouseEvent<HTMLAnchorElement>>>;
+  }}
+></Link>;
 
 const Custom = (props: { thisIsRequired: boolean }) => {
   return null;
@@ -40,18 +47,29 @@ const Custom = (props: { thisIsRequired: boolean }) => {
 // @ts-expect-error Property 'thisIsRequired' is missing
 <Link as={Custom} />;
 
-const ref = useRef<HTMLButtonElement>(null);
-
 <Link
   as="button"
   onClick={(e) => {
     type test = Expect<Equal<typeof e, React.MouseEvent<HTMLButtonElement>>>;
   }}
-  ref={ref}
 ></Link>;
 
-<Link
-  as="div"
-  // @ts-expect-error: Property 'href' does not exist
-  href="awdawd"
-></Link>;
+const ref = useRef<HTMLAnchorElement>(null);
+const wrongRef = useRef<HTMLDivElement>(null);
+
+Link({
+  ref,
+});
+
+Link({
+  as: Custom,
+  thisIsRequired: true,
+});
+
+Link({
+  // @ts-expect-error
+  ref: wrongRef,
+});
+
+// @ts-expect-error: Property 'href' does not exist
+<Link as="div" href="awdawd"></Link>;

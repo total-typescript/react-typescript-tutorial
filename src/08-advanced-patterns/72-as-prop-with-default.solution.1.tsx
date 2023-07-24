@@ -1,16 +1,18 @@
 import { ComponentPropsWithoutRef, ElementType } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
-export const Link = <T extends ElementType>(
+/**
+ * This NEARLY works, but removes autocomplete for the 'as' prop.
+ */
+export const Link = <T extends ElementType = "a">(
   props: {
-    as: T;
+    as?: T;
   } & ComponentPropsWithoutRef<T>,
 ) => {
-  const { as: Comp, ...rest } = props;
+  const { as: Comp = "a", ...rest } = props;
   return <Comp {...rest}></Comp>;
 };
 
-// 1. Should be a 'a' tag by default!
 <Link href="/"></Link>;
 
 const Custom = (props: { thisIsRequired: boolean }) => {
@@ -22,7 +24,6 @@ const Custom = (props: { thisIsRequired: boolean }) => {
 // @ts-expect-error Property 'thisIsRequired' is missing
 <Link as={Custom} />;
 
-// 2. Should still give you autocomplete options!
 <Link
   as="button"
   onClick={(e) => {
