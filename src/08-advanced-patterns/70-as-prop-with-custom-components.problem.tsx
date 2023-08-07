@@ -17,9 +17,14 @@ import { Equal, Expect } from "../helpers/type-utils";
  *   - ComponentPropsWithRef
  *   - ComponentProps
  */
-export const Wrapper = (props: { as: unknown }) => {
-  const Comp = props.as;
-  return <Comp {...props}></Comp>;
+export const Wrapper = <TAs extends keyof JSX.IntrinsicElements>(
+  props: {
+    as: TAs;
+  } & React.ComponentProps<TAs>,
+) => {
+  const Comp = props.as as string;
+
+  return <Comp {...(props as any)}></Comp>;
 };
 
 /**
