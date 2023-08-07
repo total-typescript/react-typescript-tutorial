@@ -1,7 +1,7 @@
 import { Router, useRouter } from "fake-external-lib";
 import { Equal, Expect } from "../helpers/type-utils";
 
-export const withRouter = <TProps extends { router: Router }>(
+export const withRouter = <TProps,>(
   Component: (props: TProps) => React.ReactNode,
 ): ((props: Omit<TProps, "router">) => React.ReactNode) => {
   const NewComponent = (props: Omit<TProps, "router">) => {
@@ -10,7 +10,11 @@ export const withRouter = <TProps extends { router: Router }>(
   };
 
   NewComponent.displayName = `withRouter(${
-    (Component as { displayName?: string }).displayName
+    (
+      Component as {
+        displayName?: string;
+      }
+    ).displayName
   })`;
 
   return NewComponent;
