@@ -8,7 +8,14 @@ import { Equal, Expect } from "../helpers/type-utils";
  *
  * 1. Figure out the correct typings for the `Wrapper` component.
  *
- * The solution uses generics, and the ComponentType helper.
+ * The solution uses:
+ *
+ * - Generics
+ * - ElementType
+ * - One of the following:
+ *   - ComponentPropsWithoutRef
+ *   - ComponentPropsWithRef
+ *   - ComponentProps
  */
 export const Wrapper = (props: { as: unknown }) => {
   const Comp = props.as;
