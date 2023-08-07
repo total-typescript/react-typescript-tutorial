@@ -1,20 +1,5 @@
 import { Router, useRouter } from "fake-external-lib";
 
-/**
- * A higher-order component is a function that takes a component and returns a
- * new component, with some additional props/behavior.
- *
- * In this case, we want to take a component that doesn't have a router prop,
- * and add one.
- *
- * 1. Figure out the correct typings for the `withRouter` function. You'll
- * need to use:
- *
- * - Generics
- * - Omit
- * - React.ComponentType
- * - Probably an 'as' at least once
- */
 export const withRouter = (Component: any) => {
   const NewComponent = (props: any) => {
     const router = useRouter();
