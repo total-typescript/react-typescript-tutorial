@@ -1,6 +1,6 @@
 import { Equal, Expect } from "../helpers/type-utils";
 
-import { ForwardedRef, forwardRef, useRef } from "react";
+import { ElementRef, ForwardedRef, forwardRef, useRef } from "react";
 
 type FixedForwardRef = <T, P = {}>(
   render: (props: P, ref: React.Ref<T>) => React.ReactNode,
