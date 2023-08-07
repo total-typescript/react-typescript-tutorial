@@ -40,11 +40,8 @@ const Example1 = () => {
  * Should work with Custom components!
  */
 
-const Custom = (
-  props: { thisIsRequired: boolean },
-  ref: React.ForwardedRef<HTMLAnchorElement>,
-) => {
-  return <a ref={ref} />;
+const Custom = (props: { thisIsRequired: boolean }) => {
+  return <a />;
 };
 
 const Example2 = () => {
