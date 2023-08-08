@@ -1,6 +1,7 @@
 import {
   ComponentPropsWithoutRef,
   ElementType,
+  ForwardedRef,
   forwardRef,
   useRef,
 } from "react";
@@ -13,13 +14,14 @@ import { Equal, Expect } from "../helpers/type-utils";
  * So, don't feel bad if you don't find it at all.
  */
 
-export const UnwrappedLink = <T extends ElementType>(
+export const UnwrappedLink = <TAs extends ElementType>(
   props: {
-    as?: T;
-  } & ComponentPropsWithoutRef<ElementType extends T ? "a" : T>,
+    as?: TAs;
+  } & ComponentPropsWithoutRef<ElementType extends TAs ? "a" : TAs>,
+  ref: ForwardedRef<any>,
 ) => {
   const { as: Comp = "a", ...rest } = props;
-  return <Comp {...rest}></Comp>;
+  return <Comp {...rest} ref={ref}></Comp>;
 };
 
 const Link = forwardRef(UnwrappedLink);
