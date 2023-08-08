@@ -1,12 +1,13 @@
-import React, { ComponentPropsWithoutRef, ElementType } from "react";
+import React, { ElementType } from "react";
 import { Equal, Expect } from "../helpers/type-utils";
 
-export const Wrapper = <T extends ElementType>(
+export const Wrapper = <TAs extends ElementType>(
   props: {
-    as: T;
-  } & ComponentPropsWithoutRef<T>,
+    as: TAs;
+  } & React.ComponentPropsWithoutRef<TAs>,
 ) => {
   const Comp = props.as;
+
   return <Comp {...(props as any)}></Comp>;
 };
 
