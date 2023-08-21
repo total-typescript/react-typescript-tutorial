@@ -7,18 +7,27 @@ import { Equal, Expect } from "../helpers/type-utils";
  *
  * Investigate why this is, and what TFieldValues is being used for.
  */
-const formWithValues = useForm({
-  defaultValues: {
-    firstName: "",
-    lastName: "",
-  },
-});
+const Example1 = () => {
+  const form = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+    },
+  });
 
-const values = formWithValues.getValues();
-
-type test = Expect<
-  Equal<typeof values, { firstName: string; lastName: string }>
->;
+  return (
+    <form
+      onSubmit={form.handleSubmit((values) => {
+        type test = Expect<
+          Equal<typeof values, { firstName: string; lastName: string }>
+        >;
+      })}
+    >
+      <input {...form.register("firstName")} />
+      <input {...form.register("lastName")} />
+    </form>
+  );
+};
 
 /**
  * 2. When you don't pass a default value, the return type of getValues is
@@ -27,8 +36,17 @@ type test = Expect<
  * Investigate why this is, and what type FieldValues is.
  */
 
-const formWithoutValues = useForm();
+const Example2 = () => {
+  const form = useForm({});
 
-const values2 = formWithoutValues.getValues();
-
-type test2 = Expect<Equal<typeof values2, FieldValues>>;
+  return (
+    <form
+      onSubmit={form.handleSubmit((values) => {
+        type test = Expect<Equal<typeof values, FieldValues>>;
+      })}
+    >
+      <input {...form.register("firstName")} />
+      <input {...form.register("lastName")} />
+    </form>
+  );
+};
