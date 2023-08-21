@@ -1,17 +1,17 @@
 import {
-  QueryFunctionContext,
-  QueryKey,
   useQuery,
+  QueryKey,
+  QueryFunctionContext,
 } from "@tanstack/react-query";
 import { useAuthToken } from "fake-external-lib";
 import { Equal, Expect } from "../helpers/type-utils";
 
-const useApi = <TData, TQueryKey extends QueryKey>(
+const useApi = <TQueryKey extends QueryKey, TQueryFnData>(
   queryKey: TQueryKey,
   queryFn: (
-    key: QueryFunctionContext<TQueryKey>,
+    ctx: QueryFunctionContext<TQueryKey>,
     token: string,
-  ) => Promise<TData>,
+  ) => Promise<TQueryFnData>,
 ) => {
   const token = useAuthToken();
 
