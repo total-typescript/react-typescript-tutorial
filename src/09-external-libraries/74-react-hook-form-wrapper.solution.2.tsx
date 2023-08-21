@@ -1,17 +1,21 @@
-import { DefaultValues, FieldValues, useForm } from "react-hook-form";
+import {
+  DefaultValues,
+  FieldValues,
+  UseFormGetValues,
+  UseFormHandleSubmit,
+  UseFormRegister,
+  useForm,
+} from "react-hook-form";
 import { Equal, Expect, Extends } from "../helpers/type-utils";
 
-/**
- * We add TValues as a generic to our hook, and use it to type the defaultValues.
- *
- * We constrain it to FieldValues so that it's assignable to useForm's defaultValues.
- */
-const useCustomForm = <TValues extends FieldValues>(defaultValues: TValues) => {
+const useCustomForm = <TValues extends FieldValues>(
+  defaultValues: TValues,
+): {
+  register: UseFormRegister<TValues>;
+  handleSubmit: UseFormHandleSubmit<TValues>;
+  getValues: UseFormGetValues<TValues>;
+} => {
   const form = useForm({
-    /**
-     * There's a strange papercut here where we have to cast defaultValues as
-     * DefaultValues<TValues> to get it to work.
-     */
     defaultValues: defaultValues as DefaultValues<TValues>,
   });
 
