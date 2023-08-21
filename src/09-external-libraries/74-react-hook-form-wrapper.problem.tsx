@@ -7,6 +7,10 @@ import { Equal, Expect, Extends } from "../helpers/type-utils";
  * We want to change the API slightly so that only certain methods are
  * exposed. We also want to make sure that defaultValues is ALWAYS
  * required.
+ *
+ * A clue: you'll need this line of code:
+ *
+ * defaultValues as DefaultValues<TValues>
  */
 const useCustomForm = (defaultValues: any) => {
   const form = useForm({
