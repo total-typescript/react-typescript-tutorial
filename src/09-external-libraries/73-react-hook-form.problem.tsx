@@ -50,3 +50,30 @@ const Example2 = () => {
     </form>
   );
 };
+
+/**
+ * 3. If we don't pass default values, how do we get
+ * react-hook-form to understand what type our fields are?
+ */
+
+type FormValues = {
+  firstName: string;
+  lastName: string;
+};
+
+const Example3 = () => {
+  const form = useForm();
+
+  return (
+    <form
+      onSubmit={form.handleSubmit((values) => {
+        type test = Expect<Equal<typeof values, FormValues>>;
+      })}
+    >
+      <input {...form.register("firstName")} />
+      <input {...form.register("lastName")} />
+      {/* @ts-expect-error */}
+      <input {...form.register("middleName")} />
+    </form>
+  );
+};
