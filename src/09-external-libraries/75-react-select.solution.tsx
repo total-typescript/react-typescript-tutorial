@@ -1,11 +1,8 @@
 import ReactSelect, { GroupBase, Props } from "react-select";
 import { Equal, Expect } from "../helpers/type-utils";
 
-/**
- * You need to mimic the exact type of the Props type exported by react-select.
- */
 export const Select = <
-  Option,
+  Option = unknown,
   IsMulti extends boolean = false,
   Group extends GroupBase<Option> = GroupBase<Option>,
 >(
@@ -34,6 +31,7 @@ const guitarists: Option[] = [
   <Select
     options={guitarists}
     onChange={(option) => {
+      // It should infer the type of option!
       // If isMulti is false, it should NOT be an array
       type test = Expect<Equal<typeof option, Option | null>>;
     }}
