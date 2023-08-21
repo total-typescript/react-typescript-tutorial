@@ -45,5 +45,8 @@ type tests = [
 // If you pass in an array of numbers in the queryKey, the type of ctx.queryKey
 // should be number[]
 useApi([1, 2], async (ctx, token) => {
-  type test = Expect<Equal<typeof ctx.queryKey, number[]>>;
+  type tests = [
+    Expect<Equal<typeof ctx.queryKey, number[]>>,
+    Expect<Equal<typeof token, string>>,
+  ];
 });
