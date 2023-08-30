@@ -121,10 +121,6 @@ src/05-generics/41-passing-types-to-components.problem.tsx(33,23): error TS2339:
 src/05-generics/41-passing-types-to-components.problem.tsx(44,9): error TS2578: Unused '@ts-expect-error' directive.
 src/05-generics/41-passing-types-to-components.problem.tsx(51,26): error TS2344: Type 'false' does not satisfy the constraint 'true'.
 src/05-generics/42-generic-inference-through-multiple-helpers.problem.tsx(44,26): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/05-generics/42-passing-types-to-components.problem.tsx(35,26): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/05-generics/42-passing-types-to-components.problem.tsx(36,23): error TS2339: Property 'name' does not exist on type 'number'.
-src/05-generics/42-passing-types-to-components.problem.tsx(47,9): error TS2578: Unused '@ts-expect-error' directive.
-src/05-generics/42-passing-types-to-components.problem.tsx(54,26): error TS2344: Type 'false' does not satisfy the constraint 'true'.
 src/05-generics/43-inference-flow-with-constraints.problem.ts(42,1): error TS2578: Unused '@ts-expect-error' directive.
 src/05-generics/43-inference-flow-with-constraints.problem.ts(52,5): error TS2578: Unused '@ts-expect-error' directive.
 src/05-generics/43-inference-flow-with-constraints.problem.ts(60,5): error TS2344: Type 'false' does not satisfy the constraint 'true'.
@@ -155,11 +151,16 @@ src/06-advanced-hooks/51-function-overloads-in-hooks.problem.ts(37,22): error TS
 src/06-advanced-hooks/51-function-overloads-in-hooks.problem.ts(40,10): error TS2344: Type 'false' does not satisfy the constraint 'true'.
 src/06-advanced-hooks/51-function-overloads-in-hooks.problem.ts(42,5): error TS2344: Type 'false' does not satisfy the constraint 'true'.
 src/06-advanced-hooks/52-currying-hooks.problem.ts(38,22): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/07-types-deep-dive/54-understanding-jsx-element.explainer.tsx(52,3): error TS2322: Type 'string' is not assignable to type 'ReactElement<any, string | JSXElementConstructor<any>>'.
-src/07-types-deep-dive/55-strongly-typing-children.explainer.tsx(32,3): error TS2322: Type 'Element' is not assignable to type 'OptionType'.
+src/07-types-deep-dive/54-understanding-jsx-element.problem.tsx(52,3): error TS2322: Type 'string' is not assignable to type 'ReactElement<any, string | JSXElementConstructor<any>>'.
+src/07-types-deep-dive/54-understanding-jsx-element.solution.tsx(52,3): error TS2322: Type 'string' is not assignable to type 'ReactElement<any, string | JSXElementConstructor<any>>'.
+src/07-types-deep-dive/55-strongly-typing-children.problem.tsx(32,3): error TS2322: Type 'Element' is not assignable to type 'OptionType'.
   Type 'ReactElement<any, any>' is not assignable to type '{ __brand: \\"OPTION_TYPE\\"; } & ReactPortal'.
     Property '__brand' is missing in type 'ReactElement<any, any>' but required in type '{ __brand: \\"OPTION_TYPE\\"; }'.
-src/07-types-deep-dive/56-understanding-jsx-intrinsic-elements.explainer.tsx(30,1): error TS2339: Property 'myNewElement' does not exist on type 'JSX.IntrinsicElements'.
+src/07-types-deep-dive/55-strongly-typing-children.solution.tsx(32,3): error TS2322: Type 'Element' is not assignable to type 'OptionType'.
+  Type 'ReactElement<any, any>' is not assignable to type '{ __brand: \\"OPTION_TYPE\\"; } & ReactPortal'.
+    Property '__brand' is missing in type 'ReactElement<any, any>' but required in type '{ __brand: \\"OPTION_TYPE\\"; }'.
+src/07-types-deep-dive/56-understanding-jsx-intrinsic-elements.problem.tsx(30,1): error TS2339: Property 'myNewElement' does not exist on type 'JSX.IntrinsicElements'.
+src/07-types-deep-dive/56-understanding-jsx-intrinsic-elements.solution.tsx(30,1): error TS2339: Property 'myNewElement' does not exist on type 'JSX.IntrinsicElements'.
 src/07-types-deep-dive/58-appending-to-global-namespace.problem.ts(15,20): error TS2344: Type 'false' does not satisfy the constraint 'true'.
 src/07-types-deep-dive/58-appending-to-global-namespace.problem.ts(15,32): error TS2694: Namespace 'React' has no exported member 'MyInterface'.
 src/07-types-deep-dive/59-declaration-merging-in-global-namespace.problem.ts(25,3): error TS2344: Type 'false' does not satisfy the constraint 'true'.
@@ -177,43 +178,72 @@ src/07-types-deep-dive/62-add-attribute-to-all-elements.problem.tsx(14,9): error
   Property 'testId' does not exist on type 'DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>'.
 src/07-types-deep-dive/62-add-attribute-to-all-elements.problem.tsx(15,12): error TS2322: Type '{ testId: string; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>'.
   Property 'testId' does not exist on type 'DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>'.
-src/08-advanced-patterns/63-lazy-load-component.problem.tsx(18,44): error TS2345: Argument of type 'unknown' is not assignable to parameter of type '() => Promise<{ default: ComponentType<any>; }>'.
-src/08-advanced-patterns/63-lazy-load-component.problem.tsx(28,62): error TS2322: Type '{ loader: () => Promise<typeof import(\\"/src/fake-external-lib/component\\")>; id: string; }' is not assignable to type 'IntrinsicAttributes & Props'.
+src/08-advanced-patterns/63-lazy-load-component.problem.tsx(20,44): error TS2345: Argument of type 'unknown' is not assignable to parameter of type '() => Promise<{ default: ComponentType<any>; }>'.
+src/08-advanced-patterns/63-lazy-load-component.problem.tsx(30,62): error TS2322: Type '{ loader: () => Promise<typeof import(\\"/src/fake-external-lib/component\\")>; id: string; }' is not assignable to type 'IntrinsicAttributes & Props'.
   Property 'id' does not exist on type 'IntrinsicAttributes & Props'.
-src/08-advanced-patterns/63-lazy-load-component.problem.tsx(36,4): error TS2578: Unused '@ts-expect-error' directive.
-src/08-advanced-patterns/65-render-props.problem.tsx(43,9): error TS7006: Parameter 'props' implicitly has an 'any' type.
-src/08-advanced-patterns/65-render-props.problem.tsx(44,28): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/08-advanced-patterns/66-forward-ref-with-generics.explainer.1.tsx(45,28): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/08-advanced-patterns/66-forward-ref-with-generics.explainer.2.tsx(26,28): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/08-advanced-patterns/66-forward-ref-with-generics.explainer.3.ts(52,21): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/08-advanced-patterns/67-forward-ref-as-local-function.problem.tsx(30,19): error TS7006: Parameter 'row' implicitly has an 'any' type.
-src/08-advanced-patterns/67-forward-ref-as-local-function.problem.tsx(31,28): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/08-advanced-patterns/68-hoc.problem.tsx(43,5): error TS2578: Unused '@ts-expect-error' directive.
-src/08-advanced-patterns/69-record-of-components-with-same-props.problem.tsx(16,10): error TS7006: Parameter 'props' implicitly has an 'any' type.
-src/08-advanced-patterns/69-record-of-components-with-same-props.problem.tsx(19,12): error TS7006: Parameter 'props' implicitly has an 'any' type.
-src/08-advanced-patterns/69-record-of-components-with-same-props.problem.tsx(22,14): error TS7006: Parameter 'props' implicitly has an 'any' type.
-src/08-advanced-patterns/69-record-of-components-with-same-props.problem.tsx(28,21): error TS7053: Element implicitly has an 'any' type because expression of type 'any' can't be used to index type '{ text: (props: any) => Element; number: (props: any) => Element; password: (props: any) => Element; }'.
-src/08-advanced-patterns/69-record-of-components-with-same-props.problem.tsx(28,32): error TS18046: 'props' is of type 'unknown'.
-src/08-advanced-patterns/69-record-of-components-with-same-props.problem.tsx(29,25): error TS2698: Spread types may only be created from object types.
-src/08-advanced-patterns/69-record-of-components-with-same-props.problem.tsx(34,5): error TS2322: Type '{ type: string; onChange: (e: any) => void; }' is not assignable to type 'IntrinsicAttributes'.
+src/08-advanced-patterns/63-lazy-load-component.problem.tsx(38,4): error TS2578: Unused '@ts-expect-error' directive.
+src/08-advanced-patterns/64-render-props.problem.tsx(43,9): error TS7006: Parameter 'props' implicitly has an 'any' type.
+src/08-advanced-patterns/64-render-props.problem.tsx(44,28): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/08-advanced-patterns/64.5-record-of-components-with-same-props.problem.tsx(16,10): error TS7006: Parameter 'props' implicitly has an 'any' type.
+src/08-advanced-patterns/64.5-record-of-components-with-same-props.problem.tsx(19,12): error TS7006: Parameter 'props' implicitly has an 'any' type.
+src/08-advanced-patterns/64.5-record-of-components-with-same-props.problem.tsx(22,14): error TS7006: Parameter 'props' implicitly has an 'any' type.
+src/08-advanced-patterns/64.5-record-of-components-with-same-props.problem.tsx(28,21): error TS7053: Element implicitly has an 'any' type because expression of type 'any' can't be used to index type '{ text: (props: any) => Element; number: (props: any) => Element; password: (props: any) => Element; }'.
+src/08-advanced-patterns/64.5-record-of-components-with-same-props.problem.tsx(28,32): error TS18046: 'props' is of type 'unknown'.
+src/08-advanced-patterns/64.5-record-of-components-with-same-props.problem.tsx(29,25): error TS2698: Spread types may only be created from object types.
+src/08-advanced-patterns/64.5-record-of-components-with-same-props.problem.tsx(34,5): error TS2322: Type '{ type: string; onChange: (e: any) => void; }' is not assignable to type 'IntrinsicAttributes'.
   Property 'type' does not exist on type 'IntrinsicAttributes'.
-src/08-advanced-patterns/69-record-of-components-with-same-props.problem.tsx(35,16): error TS7006: Parameter 'e' implicitly has an 'any' type.
-src/08-advanced-patterns/69-record-of-components-with-same-props.problem.tsx(37,26): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/08-advanced-patterns/69-record-of-components-with-same-props.problem.tsx(40,10): error TS2322: Type '{ type: string; }' is not assignable to type 'IntrinsicAttributes'.
+src/08-advanced-patterns/64.5-record-of-components-with-same-props.problem.tsx(35,16): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/08-advanced-patterns/64.5-record-of-components-with-same-props.problem.tsx(37,26): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/08-advanced-patterns/64.5-record-of-components-with-same-props.problem.tsx(40,10): error TS2322: Type '{ type: string; }' is not assignable to type 'IntrinsicAttributes'.
   Property 'type' does not exist on type 'IntrinsicAttributes'.
-src/08-advanced-patterns/69-record-of-components-with-same-props.problem.tsx(41,10): error TS2322: Type '{ type: string; }' is not assignable to type 'IntrinsicAttributes'.
+src/08-advanced-patterns/64.5-record-of-components-with-same-props.problem.tsx(41,10): error TS2322: Type '{ type: string; }' is not assignable to type 'IntrinsicAttributes'.
   Property 'type' does not exist on type 'IntrinsicAttributes'.
-src/08-advanced-patterns/70-as-prop.problem.tsx(37,5): error TS2578: Unused '@ts-expect-error' directive.
-src/08-advanced-patterns/71-as-prop-with-custom-components.problem.tsx(14,11): error TS2604: JSX element type 'Comp' does not have any construct or call signatures.
-src/08-advanced-patterns/71-as-prop-with-custom-components.problem.tsx(14,11): error TS2786: 'Comp' cannot be used as a JSX component.
-  Its type 'unknown' is not a valid JSX element type.
-src/08-advanced-patterns/71-as-prop-with-custom-components.problem.tsx(21,20): error TS2322: Type '{ as: (props: { href: string; children?: ReactNode; }) => Element; href: string; }' is not assignable to type 'IntrinsicAttributes & { as: unknown; }'.
-  Property 'href' does not exist on type 'IntrinsicAttributes & { as: unknown; }'.
-src/08-advanced-patterns/72-as-prop-with-default.problem.tsx(10,11): error TS2322: Type 'Omit<{ as: T; } & ComponentPropsWithoutRef<T>, \\"as\\">' is not assignable to type 'IntrinsicAttributes & LibraryManagedAttributes<T, any>'.
-  Type 'Omit<{ as: T; } & ComponentPropsWithoutRef<T>, \\"as\\">' is not assignable to type 'LibraryManagedAttributes<T, any>'.
-src/08-advanced-patterns/72-as-prop-with-default.problem.tsx(14,2): error TS2741: Property 'as' is missing in type '{ href: string; }' but required in type '{ as: ElementType; }'.
-src/09-external-libraries/74-react-hook-form-wrapper.problem.tsx(29,3): error TS2578: Unused '@ts-expect-error' directive.
-src/09-external-libraries/74-react-hook-form-wrapper.problem.tsx(42,5): error TS2344: Type 'boolean' does not satisfy the constraint 'true'.
+src/08-advanced-patterns/65-forward-ref-with-generics.explainer.1.tsx(52,30): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/08-advanced-patterns/65-forward-ref-with-generics.explainer.2.tsx(26,28): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/08-advanced-patterns/65-forward-ref-with-generics.explainer.3.tsx(31,30): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/08-advanced-patterns/66-forward-ref-as-local-function.problem.tsx(37,21): error TS7006: Parameter 'row' implicitly has an 'any' type.
+src/08-advanced-patterns/66-forward-ref-as-local-function.problem.tsx(38,30): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/08-advanced-patterns/66-forward-ref-as-local-function.problem.tsx(43,9): error TS2578: Unused '@ts-expect-error' directive.
+src/08-advanced-patterns/66-forward-ref-as-local-function.problem.tsx(46,21): error TS7006: Parameter 'row' implicitly has an 'any' type.
+src/08-advanced-patterns/67-hoc.problem.tsx(28,5): error TS2578: Unused '@ts-expect-error' directive.
+src/08-advanced-patterns/67.5-hoc-for-generic-components.problem.tsx(40,26): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/08-advanced-patterns/67.5-hoc-for-generic-components.problem.tsx(48,26): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/08-advanced-patterns/69-as-prop.problem.tsx(41,9): error TS2578: Unused '@ts-expect-error' directive.
+src/08-advanced-patterns/69-as-prop.problem.tsx(48,19): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/08-advanced-patterns/69-as-prop.problem.tsx(50,13): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/08-advanced-patterns/69-as-prop.problem.tsx(67,9): error TS2578: Unused '@ts-expect-error' directive.
+src/08-advanced-patterns/69-as-prop.problem.tsx(74,19): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/08-advanced-patterns/69-as-prop.problem.tsx(75,30): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/08-advanced-patterns/69-as-prop.solution.1.tsx(12,32): error TS2304: Cannot find name 'AsProps'.
+src/08-advanced-patterns/69-as-prop.solution.1.tsx(26,9): error TS2578: Unused '@ts-expect-error' directive.
+src/08-advanced-patterns/69-as-prop.solution.1.tsx(33,19): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/08-advanced-patterns/69-as-prop.solution.1.tsx(35,13): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/08-advanced-patterns/69-as-prop.solution.1.tsx(52,9): error TS2578: Unused '@ts-expect-error' directive.
+src/08-advanced-patterns/69-as-prop.solution.1.tsx(59,19): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/08-advanced-patterns/69-as-prop.solution.1.tsx(60,30): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/08-advanced-patterns/70-as-prop-with-custom-components.problem.tsx(67,16): error TS2322: Type '(props: {    thisIsRequired: boolean;}) => JSX.Element' is not assignable to type 'keyof IntrinsicElements'.
+src/08-advanced-patterns/70-as-prop-with-custom-components.problem.tsx(69,9): error TS2322: Type '(props: {    thisIsRequired: boolean;}) => JSX.Element' is not assignable to type 'keyof IntrinsicElements'.
+src/08-advanced-patterns/70-as-prop-with-custom-components.problem.tsx(70,9): error TS2578: Unused '@ts-expect-error' directive.
+src/08-advanced-patterns/71-as-prop-with-default.problem.tsx(20,8): error TS2741: Property 'as' is missing in type '{ doesNotExist: true; }' but required in type '{ as: ElementType; }'.
+src/08-advanced-patterns/71-as-prop-with-default.problem.tsx(21,9): error TS2578: Unused '@ts-expect-error' directive.
+src/08-advanced-patterns/71-as-prop-with-default.problem.tsx(25,8): error TS2741: Property 'as' is missing in type '{ onClick: (e: any) => void; }' but required in type '{ as: ElementType; }'.
+src/08-advanced-patterns/71-as-prop-with-default.problem.tsx(27,19): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/08-advanced-patterns/71-as-prop-with-default.problem.tsx(29,13): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/08-advanced-patterns/72-as-prop-with-forward-ref.problem.tsx(42,9): error TS2578: Unused '@ts-expect-error' directive.
+src/08-advanced-patterns/72-as-prop-with-forward-ref.problem.tsx(80,9): error TS2578: Unused '@ts-expect-error' directive.
+src/08-advanced-patterns/72-as-prop-with-forward-ref.problem.tsx(95,13): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/08-advanced-patterns/72-as-prop-with-forward-ref.problem.tsx(121,25): error TS2322: Type '{ as: ForwardRefExoticComponent<{ thisIsRequired: boolean; } & RefAttributes<HTMLAnchorElement>>; thisIsRequired: true; }' is not assignable to type 'IntrinsicAttributes & { as?: ElementType | undefined; } & Omit<DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>, \\"ref\\"> & RefAttributes<...>'.
+  Property 'thisIsRequired' does not exist on type 'IntrinsicAttributes & { as?: ElementType | undefined; } & Omit<DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>, \\"ref\\"> & RefAttributes<...>'.
+src/08-advanced-patterns/72-as-prop-with-forward-ref.problem.tsx(128,8): error TS2578: Unused '@ts-expect-error' directive.
+src/08-advanced-patterns/72-as-prop-with-forward-ref.problem.tsx(131,35): error TS2322: Type '{ as: ForwardRefExoticComponent<{ thisIsRequired: boolean; } & RefAttributes<HTMLAnchorElement>>; ref: RefObject<HTMLAnchorElement>; thisIsRequired: true; }' is not assignable to type 'IntrinsicAttributes & { as?: ElementType | undefined; } & Omit<DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>, \\"ref\\"> & RefAttributes<...>'.
+  Property 'thisIsRequired' does not exist on type 'IntrinsicAttributes & { as?: ElementType | undefined; } & Omit<DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>, \\"ref\\"> & RefAttributes<...>'.
+src/08-advanced-patterns/72-as-prop-with-forward-ref.problem.tsx(135,9): error TS2578: Unused '@ts-expect-error' directive.
+src/08-advanced-patterns/72-as-prop-with-forward-ref.problem.tsx(137,9): error TS2322: Type '{ as: ForwardRefExoticComponent<{ thisIsRequired: boolean; } & RefAttributes<HTMLAnchorElement>>; ref: RefObject<HTMLDivElement>; thisIsRequired: true; }' is not assignable to type 'IntrinsicAttributes & { as?: ElementType | undefined; } & Omit<DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>, \\"ref\\"> & RefAttributes<...>'.
+  Property 'thisIsRequired' does not exist on type 'IntrinsicAttributes & { as?: ElementType | undefined; } & Omit<DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>, \\"ref\\"> & RefAttributes<...>'.
+src/09-external-libraries/73-react-hook-form.problem.tsx(70,28): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/09-external-libraries/73-react-hook-form.problem.tsx(75,8): error TS2578: Unused '@ts-expect-error' directive.
+src/09-external-libraries/74-react-hook-form-wrapper.problem.tsx(33,3): error TS2578: Unused '@ts-expect-error' directive.
+src/09-external-libraries/74-react-hook-form-wrapper.problem.tsx(46,5): error TS2344: Type 'boolean' does not satisfy the constraint 'true'.
 src/09-external-libraries/75-react-select.problem.tsx(10,24): error TS7006: Parameter 'props' implicitly has an 'any' type.
 src/09-external-libraries/75-react-select.problem.tsx(33,16): error TS7006: Parameter 'option' implicitly has an 'any' type.
 src/09-external-libraries/75-react-select.problem.tsx(36,26): error TS2344: Type 'false' does not satisfy the constraint 'true'.
@@ -221,7 +251,7 @@ src/09-external-libraries/75-react-select.problem.tsx(43,16): error TS7006: Para
 src/09-external-libraries/75-react-select.problem.tsx(45,26): error TS2344: Type 'false' does not satisfy the constraint 'true'.
 src/09-external-libraries/77-react-query-wrapper.problem.ts(30,12): error TS2344: Type 'false' does not satisfy the constraint 'true'.
 src/09-external-libraries/77-react-query-wrapper.problem.ts(44,10): error TS2344: Type 'false' does not satisfy the constraint 'true'.
-src/09-external-libraries/77-react-query-wrapper.problem.ts(50,22): error TS2344: Type 'false' does not satisfy the constraint 'true'.
+src/09-external-libraries/77-react-query-wrapper.problem.ts(51,12): error TS2344: Type 'false' does not satisfy the constraint 'true'.
 ,"
 `;
 
@@ -864,12 +894,6 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/05-generics/42-passing-types-to-components.problem.tsx",
-      "name": "/src/05-generics/42-passing-types-to-components.problem.tsx",
-      "status": "passed",
-    },
-    {
-      "assertionResults": [],
       "message": "Cannot read properties of null (reading 'useState')",
       "name": "/src/05-generics/43-inference-flow-with-constraints.problem.ts",
       "status": "passed",
@@ -1014,32 +1038,50 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
     },
     {
       "assertionResults": [],
-      "message": "React is not defined",
+      "message": "No test found in suite src/07-types-deep-dive/53-understand-react-namespace-export.problem.ts",
       "name": "/src/07-types-deep-dive/53-understand-react-namespace-export.problem.ts",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "React is not defined",
+      "message": "No test found in suite src/07-types-deep-dive/53-understand-react-namespace-export.solution.ts",
       "name": "/src/07-types-deep-dive/53-understand-react-namespace-export.solution.ts",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/07-types-deep-dive/54-understanding-jsx-element.explainer.tsx",
-      "name": "/src/07-types-deep-dive/54-understanding-jsx-element.explainer.tsx",
+      "message": "No test found in suite src/07-types-deep-dive/54-understanding-jsx-element.problem.tsx",
+      "name": "/src/07-types-deep-dive/54-understanding-jsx-element.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/07-types-deep-dive/55-strongly-typing-children.explainer.tsx",
-      "name": "/src/07-types-deep-dive/55-strongly-typing-children.explainer.tsx",
+      "message": "No test found in suite src/07-types-deep-dive/54-understanding-jsx-element.solution.tsx",
+      "name": "/src/07-types-deep-dive/54-understanding-jsx-element.solution.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/07-types-deep-dive/56-understanding-jsx-intrinsic-elements.explainer.tsx",
-      "name": "/src/07-types-deep-dive/56-understanding-jsx-intrinsic-elements.explainer.tsx",
+      "message": "No test found in suite src/07-types-deep-dive/55-strongly-typing-children.problem.tsx",
+      "name": "/src/07-types-deep-dive/55-strongly-typing-children.problem.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "No test found in suite src/07-types-deep-dive/55-strongly-typing-children.solution.tsx",
+      "name": "/src/07-types-deep-dive/55-strongly-typing-children.solution.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "No test found in suite src/07-types-deep-dive/56-understanding-jsx-intrinsic-elements.problem.tsx",
+      "name": "/src/07-types-deep-dive/56-understanding-jsx-intrinsic-elements.problem.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "No test found in suite src/07-types-deep-dive/56-understanding-jsx-intrinsic-elements.solution.tsx",
+      "name": "/src/07-types-deep-dive/56-understanding-jsx-intrinsic-elements.solution.tsx",
       "status": "passed",
     },
     {
@@ -1086,8 +1128,14 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/07-types-deep-dive/61-html-attributes.explainer.tsx",
-      "name": "/src/07-types-deep-dive/61-html-attributes.explainer.tsx",
+      "message": "No test found in suite src/07-types-deep-dive/61-html-attributes.problem.tsx",
+      "name": "/src/07-types-deep-dive/61-html-attributes.problem.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "No test found in suite src/07-types-deep-dive/61-html-attributes.solution.tsx",
+      "name": "/src/07-types-deep-dive/61-html-attributes.solution.tsx",
       "status": "passed",
     },
     {
@@ -1116,128 +1164,164 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/64-const-generics-in-generic-components.problem.tsx",
-      "name": "/src/08-advanced-patterns/64-const-generics-in-generic-components.problem.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/64-render-props.problem.tsx",
+      "name": "/src/08-advanced-patterns/64-render-props.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/65-render-props.problem.tsx",
-      "name": "/src/08-advanced-patterns/65-render-props.problem.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/64-render-props.solution.tsx",
+      "name": "/src/08-advanced-patterns/64-render-props.solution.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/65-render-props.solution.tsx",
-      "name": "/src/08-advanced-patterns/65-render-props.solution.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/64.5-record-of-components-with-same-props.problem.tsx",
+      "name": "/src/08-advanced-patterns/64.5-record-of-components-with-same-props.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/66-forward-ref-with-generics.explainer.1.tsx",
-      "name": "/src/08-advanced-patterns/66-forward-ref-with-generics.explainer.1.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/64.5-record-of-components-with-same-props.solution.1.tsx",
+      "name": "/src/08-advanced-patterns/64.5-record-of-components-with-same-props.solution.1.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/66-forward-ref-with-generics.explainer.2.tsx",
-      "name": "/src/08-advanced-patterns/66-forward-ref-with-generics.explainer.2.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/64.5-record-of-components-with-same-props.solution.2.tsx",
+      "name": "/src/08-advanced-patterns/64.5-record-of-components-with-same-props.solution.2.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/66-forward-ref-with-generics.explainer.3.ts",
-      "name": "/src/08-advanced-patterns/66-forward-ref-with-generics.explainer.3.ts",
+      "message": "No test found in suite src/08-advanced-patterns/65-forward-ref-with-generics.explainer.1.tsx",
+      "name": "/src/08-advanced-patterns/65-forward-ref-with-generics.explainer.1.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/67-forward-ref-as-local-function.problem.tsx",
-      "name": "/src/08-advanced-patterns/67-forward-ref-as-local-function.problem.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/65-forward-ref-with-generics.explainer.2.tsx",
+      "name": "/src/08-advanced-patterns/65-forward-ref-with-generics.explainer.2.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/67-forward-ref-as-local-function.solution.tsx",
-      "name": "/src/08-advanced-patterns/67-forward-ref-as-local-function.solution.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/65-forward-ref-with-generics.explainer.3.tsx",
+      "name": "/src/08-advanced-patterns/65-forward-ref-with-generics.explainer.3.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/68-hoc.problem.tsx",
-      "name": "/src/08-advanced-patterns/68-hoc.problem.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/66-forward-ref-as-local-function.problem.tsx",
+      "name": "/src/08-advanced-patterns/66-forward-ref-as-local-function.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/68-hoc.solution.tsx",
-      "name": "/src/08-advanced-patterns/68-hoc.solution.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/66-forward-ref-as-local-function.solution.1.tsx",
+      "name": "/src/08-advanced-patterns/66-forward-ref-as-local-function.solution.1.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/69-record-of-components-with-same-props.problem.tsx",
-      "name": "/src/08-advanced-patterns/69-record-of-components-with-same-props.problem.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/66-forward-ref-as-local-function.solution.2.tsx",
+      "name": "/src/08-advanced-patterns/66-forward-ref-as-local-function.solution.2.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/69-record-of-components-with-same-props.solution.1.tsx",
-      "name": "/src/08-advanced-patterns/69-record-of-components-with-same-props.solution.1.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/67-hoc.problem.tsx",
+      "name": "/src/08-advanced-patterns/67-hoc.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/69-record-of-components-with-same-props.solution.2.tsx",
-      "name": "/src/08-advanced-patterns/69-record-of-components-with-same-props.solution.2.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/67-hoc.solution.tsx",
+      "name": "/src/08-advanced-patterns/67-hoc.solution.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/70-as-prop.problem.tsx",
-      "name": "/src/08-advanced-patterns/70-as-prop.problem.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/67.5-hoc-for-generic-components.problem.tsx",
+      "name": "/src/08-advanced-patterns/67.5-hoc-for-generic-components.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/70-as-prop.solution.1.tsx",
-      "name": "/src/08-advanced-patterns/70-as-prop.solution.1.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/67.5-hoc-for-generic-components.solution.tsx",
+      "name": "/src/08-advanced-patterns/67.5-hoc-for-generic-components.solution.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/70-as-prop.solution.2.tsx",
-      "name": "/src/08-advanced-patterns/70-as-prop.solution.2.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/69-as-prop.problem.tsx",
+      "name": "/src/08-advanced-patterns/69-as-prop.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/71-as-prop-with-custom-components.problem.tsx",
-      "name": "/src/08-advanced-patterns/71-as-prop-with-custom-components.problem.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/69-as-prop.solution.1.tsx",
+      "name": "/src/08-advanced-patterns/69-as-prop.solution.1.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/71-as-prop-with-custom-components.solution.tsx",
-      "name": "/src/08-advanced-patterns/71-as-prop-with-custom-components.solution.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/69-as-prop.solution.2.tsx",
+      "name": "/src/08-advanced-patterns/69-as-prop.solution.2.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/72-as-prop-with-default.problem.tsx",
-      "name": "/src/08-advanced-patterns/72-as-prop-with-default.problem.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/70-as-prop-with-custom-components.problem.tsx",
+      "name": "/src/08-advanced-patterns/70-as-prop-with-custom-components.problem.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "No test found in suite src/08-advanced-patterns/72-as-prop-with-default.solution.tsx",
-      "name": "/src/08-advanced-patterns/72-as-prop-with-default.solution.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/70-as-prop-with-custom-components.solution.tsx",
+      "name": "/src/08-advanced-patterns/70-as-prop-with-custom-components.solution.tsx",
       "status": "passed",
     },
     {
       "assertionResults": [],
-      "message": "Cannot read properties of null (reading 'useRef')",
-      "name": "/src/09-external-libraries/73-react-hook-form.explainer.tsx",
+      "message": "No test found in suite src/08-advanced-patterns/71-as-prop-with-default.problem.tsx",
+      "name": "/src/08-advanced-patterns/71-as-prop-with-default.problem.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "No test found in suite src/08-advanced-patterns/71-as-prop-with-default.solution.1.tsx",
+      "name": "/src/08-advanced-patterns/71-as-prop-with-default.solution.1.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "No test found in suite src/08-advanced-patterns/71-as-prop-with-default.solution.2.tsx",
+      "name": "/src/08-advanced-patterns/71-as-prop-with-default.solution.2.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "No test found in suite src/08-advanced-patterns/72-as-prop-with-forward-ref.problem.tsx",
+      "name": "/src/08-advanced-patterns/72-as-prop-with-forward-ref.problem.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "No test found in suite src/08-advanced-patterns/72-as-prop-with-forward-ref.solution.tsx",
+      "name": "/src/08-advanced-patterns/72-as-prop-with-forward-ref.solution.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "No test found in suite src/09-external-libraries/73-react-hook-form.problem.tsx",
+      "name": "/src/09-external-libraries/73-react-hook-form.problem.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "No test found in suite src/09-external-libraries/73-react-hook-form.solution.tsx",
+      "name": "/src/09-external-libraries/73-react-hook-form.solution.tsx",
       "status": "passed",
     },
     {
@@ -1249,7 +1333,13 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
     {
       "assertionResults": [],
       "message": "Cannot read properties of null (reading 'useRef')",
-      "name": "/src/09-external-libraries/74-react-hook-form-wrapper.solution.tsx",
+      "name": "/src/09-external-libraries/74-react-hook-form-wrapper.solution.1.tsx",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "Cannot read properties of null (reading 'useRef')",
+      "name": "/src/09-external-libraries/74-react-hook-form-wrapper.solution.2.tsx",
       "status": "passed",
     },
     {
@@ -1267,7 +1357,13 @@ exports[`vitest > Should have the correct Vitest errors 1`] = `
     {
       "assertionResults": [],
       "message": "Cannot read properties of null (reading 'useContext')",
-      "name": "/src/09-external-libraries/76-react-query.explainer.ts",
+      "name": "/src/09-external-libraries/76-react-query.problem.ts",
+      "status": "passed",
+    },
+    {
+      "assertionResults": [],
+      "message": "Cannot read properties of null (reading 'useContext')",
+      "name": "/src/09-external-libraries/76-react-query.solution.ts",
       "status": "passed",
     },
     {
