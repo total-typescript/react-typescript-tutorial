@@ -8,23 +8,18 @@ Clone this repo or [open in Gitpod](https://gitpod.io/#https://github.com/total-
 # Installs all dependencies
 npm install
 
-# Starts the first exercise
-npm run exercise 01
-
-# Runs linting and tests on the solution
-npm run solution 01
+# Asks you which exercise you'd like to run, and runs it
+npm run exercise
 ```
 
 ## How to take the course
 
-You'll notice that the course is split into exercises. Each exercise is split into a `*.problem.ts` and a `*.solution.ts`.
+You'll notice that the course is split into exercises. Each exercise is split into a `*.problem` and a `*.solution`.
 
 To take an exercise:
 
-1. Go into `*.problem.ts`
-2. Run `npm run exercise 01`, where `01` is the number of the exercise you're on.
-
-The `exercise` script will run TypeScript typechecks and a test suite on the exercise.
+1. Run `npm run exercise`
+2. Choose which exercise you'd like to run.
 
 This course encourages **active, exploratory learning**. In the video, I'll explain a problem, and **you'll be asked to try to find a solution**. To attempt a solution, you'll need to:
 
@@ -34,9 +29,7 @@ This course encourages **active, exploratory learning**. In the video, I'll expl
 
 You'll know if you've succeeded because the tests will pass.
 
-**If you succeed**, or **if you get stuck**, unpause the video and check out the `*.solution.ts`. You can see if your solution is better or worse than mine!
-
-You can run `npm run solution 01` to run the tests and typechecking on the solution.
+**If you succeed**, or **if you get stuck**, unpause the video and check out the `*.solution`. You can see if your solution is better or worse than mine!
 
 ## Acknowledgements
 
@@ -44,14 +37,8 @@ Say thanks to Matt on [Twitter](https://twitter.com/mattpocockuk) or by joining 
 
 ## Reference
 
-### `npm run exercise 01`
+### `npm run exercise`
 
-Alias: `npm run e 01`
+Alias: `npm run e`
 
-Run the corresponding `*.problem.ts` file.
-
-### `npm run solution 01`
-
-Alias: `npm run s 01`
-
-Run the corresponding `*.solution.ts` file. If there are multiple, it runs only the first one.
+Open a prompt for choosing which exercise you'd like to run.
