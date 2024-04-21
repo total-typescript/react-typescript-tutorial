@@ -3,7 +3,7 @@ import { Equal, Expect } from "../helpers/type-utils";
 
 /**
  * Returning to our useStateAsObject function, we now want to make it work
- * EXACTLY like useState, where if you NOTHING, it returns T | undefined.
+ * EXACTLY like useState, where if you pass NOTHING, it returns T | undefined.
  *
  * If you pass a default value, it should NOT include undefined.
  */
