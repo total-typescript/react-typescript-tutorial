@@ -5,13 +5,13 @@
   "author": "Matt Pocock <mattpocockvoice@gmail.com>",
   "license": "GPL",
   "devDependencies": {
-    "@total-typescript/exercise-cli": "^0.4.0",
+    "@total-typescript/exercise-cli": "^0.5.1",
     "cross-fetch": "^3.1.5",
     "jsdom": "^21.1.1",
     "prettier": "^2.8.7",
-    "typescript": "^5.2.2",
+    "typescript": "^5.4.5",
     "vite-tsconfig-paths": "^4.0.7",
-    "vitest": "^0.34.4"
+    "vitest": "^1.6.0"
   },
   "scripts": {
     "exercise": "tt-cli run",
@@ -25,8 +25,8 @@
     "s-09": "tt-cli run 09 --solution",
     "e-10": "tt-cli run 10",
     "s-10": "tt-cli run 10 --solution",
-    "e-18": "npm run exercise -- 18",
-    "s-18": "npm run solution -- 18",
+    "e-18": "tt-cli run 18",
+    "s-18": "tt-cli run 18 --solution",
     "e-19": "tt-cli run 19",
     "s-19": "tt-cli run 19 --solution",
     "e-20": "tt-cli run 20",
@@ -162,7 +162,23 @@
     "e-74": "tt-cli run 74",
     "s-74": "tt-cli run 74 --solution",
     "e-76": "tt-cli run 76",
-    "s-76": "tt-cli run 76 --solution"
+    "s-76": "tt-cli run 76 --solution",
+    "e-01": "tt-cli run 01",
+    "s-01": "tt-cli run 01 --solution",
+    "e-02": "tt-cli run 02",
+    "s-02": "tt-cli run 02 --solution",
+    "e-53": "tt-cli run 53",
+    "s-53": "tt-cli run 53 --solution",
+    "e-64.5": "tt-cli run 64.5",
+    "s-64.5": "tt-cli run 64.5 --solution",
+    "e-67.5": "tt-cli run 67.5",
+    "s-67.5": "tt-cli run 67.5 --solution",
+    "e-72": "tt-cli run 72",
+    "s-72": "tt-cli run 72 --solution",
+    "e-75": "tt-cli run 75",
+    "s-75": "tt-cli run 75 --solution",
+    "e-77": "tt-cli run 77",
+    "s-77": "tt-cli run 77 --solution"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.29.12",
