@@ -2,34 +2,59 @@ name: Renovate Checks
 on:
   push:
     branches:
-      - "renovate/**"
+      - "**"
 
 jobs:
   build:
     name: Check Snapshot
     runs-on: ubuntu-latest
     steps:
+      - name: Determine if branch starts with renovate/
+        id: check_branch
+        run: |
+          if [[ "${GITHUB_REF##*/}" == renovate/* ]]; then
+            echo "should_skip=false" >> $GITHUB_ENV
+          else
+            echo "should_skip=true" >> $GITHUB_ENV
+          fi
+
       - name: Checkout Main
         uses: actions/checkout@v4
+        if: ${{ env.should_skip == 'false' }}
         with:
           ref: main
           path: repo
-
+      
       - name: Install Dependencies in Main
+        if: ${{ env.should_skip == 'false' }}
         run: (cd repo && npm install)
+      
       - name: Create Snapshot In Main
+        if: ${{ env.should_skip == 'false' }}
         run: (cd repo && npx tt-cli take-snapshot ./snap.md)
+      
       - name: Copy Snapshot To Outer Directory
+        if: ${{ env.should_skip == 'false' }}
         run: mv repo/snap.md ./snap.md
+      
       - name: Delete Main Directory
+        if: ${{ env.should_skip == 'false' }}
         run: rm -rf repo
+      
       - name: Checkout Branch
+        if: ${{ env.should_skip == 'false' }}
         uses: actions/checkout@v4
         with:
           path: repo
+      
       - name: Install Dependencies in Branch
+        if: ${{ env.should_skip == 'false' }}
         run: (cd repo && npm install)
+      
       - name: Move Snapshot To Branch
+        if: ${{ env.should_skip == 'false' }}
         run: mv ./snap.md repo/snap.md
+      
       - name: Compare Snapshot In Branch
+        if: ${{ env.should_skip == 'false' }}
         run: (cd repo && npx tt-cli compare-snapshot ./snap.md)
