@@ -1,17 +1,16 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"],
   "packageRules": [
     {
-      "packagePatterns": ["*"],
-      "excludeDepNames": [
+      "matchDepNames": [
         "typescript",
         "vitest",
         "react",
         "@types/react",
         "@total-typescript/exercise-cli"
       ],
-      "enabled": false
+      "enabled": true,
+      "automerge": true
     }
   ]
 }
