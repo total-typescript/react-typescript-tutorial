@@ -4,7 +4,7 @@
   "packageRules": [
     {
       "packagePatterns": ["*"],
-      "excludePackagePatterns": [
+      "excludeDepNames": [
         "typescript",
         "vitest",
         "react",
