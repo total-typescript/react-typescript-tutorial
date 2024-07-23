@@ -3,7 +3,7 @@ import { Equal, Expect } from "../helpers/type-utils";
 
 interface TableProps<T> {
   rows: T[];
-  renderRow: (row: T) => ReactNode;
+  rendw: (row: T) => ReactNode;
 }
 
 /**
