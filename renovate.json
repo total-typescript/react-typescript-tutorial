@@ -4,18 +4,14 @@
   "packageRules": [
     {
       "packagePatterns": ["*"],
-      "enabled": false
-    },
-    {
-      "matchDepNames": [
+      "excludePackagePatterns": [
         "typescript",
         "vitest",
         "react",
         "@types/react",
         "@total-typescript/exercise-cli"
       ],
-      "enabled": true,
-      "automerge": true
+      "enabled": false
     }
   ]
 }
