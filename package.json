@@ -2,7 +2,7 @@
   "name": "react-typescript-tutorial",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Matt Pocock <mattpocockvoice@gmail.com>",
+  "author": "Matt Pocock <team@totaltypescript.com>",
   "license": "GPL",
   "devDependencies": {
     "@total-typescript/exercise-cli": "^0.10.0",
