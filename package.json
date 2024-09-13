@@ -189,5 +189,6 @@
     "react-hook-form": "^7.44.3",
     "react-select": "^5.7.3",
     "zod": "^3.21.4"
-  }
+  },
+  "type": "module"
 }
